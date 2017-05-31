@@ -1,0 +1,7 @@
+C:\Projects\EicmApi\Eicm.Core\bin\Debug\netstandard1.4\Eicm.Core.deps.json
+C:\Projects\EicmApi\Eicm.Core\bin\Debug\netstandard1.4\Eicm.Core.dll
+C:\Projects\EicmApi\Eicm.Core\bin\Debug\netstandard1.4\Eicm.Core.pdb
+C:\Projects\EicmApi\Eicm.Core\obj\Debug\netstandard1.4\Eicm.Core.csprojResolveAssemblyReference.cache
+C:\Projects\EicmApi\Eicm.Core\obj\Debug\netstandard1.4\Eicm.Core.AssemblyInfo.cs
+C:\Projects\EicmApi\Eicm.Core\obj\Debug\netstandard1.4\Eicm.Core.dll
+C:\Projects\EicmApi\Eicm.Core\obj\Debug\netstandard1.4\Eicm.Core.pdb

@@ -1,0 +1,7 @@
+C:\Projects\EicmApi\Eicm.DataLayer\bin\Debug\netstandard1.4\Eicm.DataLayer.deps.json
+C:\Projects\EicmApi\Eicm.DataLayer\bin\Debug\netstandard1.4\Eicm.DataLayer.dll
+C:\Projects\EicmApi\Eicm.DataLayer\bin\Debug\netstandard1.4\Eicm.DataLayer.pdb
+C:\Projects\EicmApi\Eicm.DataLayer\obj\Debug\netstandard1.4\Eicm.DataLayer.csprojResolveAssemblyReference.cache
+C:\Projects\EicmApi\Eicm.DataLayer\obj\Debug\netstandard1.4\Eicm.DataLayer.AssemblyInfo.cs
+C:\Projects\EicmApi\Eicm.DataLayer\obj\Debug\netstandard1.4\Eicm.DataLayer.dll
+C:\Projects\EicmApi\Eicm.DataLayer\obj\Debug\netstandard1.4\Eicm.DataLayer.pdb
