@@ -1,7 +1,0 @@
-C:\Projects\EicmApi\Eicm.UnitTest\bin\Debug\netstandard1.4\Eicm.UnitTest.deps.json
-C:\Projects\EicmApi\Eicm.UnitTest\bin\Debug\netstandard1.4\Eicm.UnitTest.dll
-C:\Projects\EicmApi\Eicm.UnitTest\bin\Debug\netstandard1.4\Eicm.UnitTest.pdb
-C:\Projects\EicmApi\Eicm.UnitTest\obj\Debug\netstandard1.4\Eicm.UnitTest.csprojResolveAssemblyReference.cache
-C:\Projects\EicmApi\Eicm.UnitTest\obj\Debug\netstandard1.4\Eicm.UnitTest.AssemblyInfo.cs
-C:\Projects\EicmApi\Eicm.UnitTest\obj\Debug\netstandard1.4\Eicm.UnitTest.dll
-C:\Projects\EicmApi\Eicm.UnitTest\obj\Debug\netstandard1.4\Eicm.UnitTest.pdb

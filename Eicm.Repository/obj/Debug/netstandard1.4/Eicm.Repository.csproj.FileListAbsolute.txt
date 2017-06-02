@@ -1,7 +1,0 @@
-C:\Projects\EicmApi\Eicm.Repository\bin\Debug\netstandard1.4\Eicm.Repository.deps.json
-C:\Projects\EicmApi\Eicm.Repository\bin\Debug\netstandard1.4\Eicm.Repository.dll
-C:\Projects\EicmApi\Eicm.Repository\bin\Debug\netstandard1.4\Eicm.Repository.pdb
-C:\Projects\EicmApi\Eicm.Repository\obj\Debug\netstandard1.4\Eicm.Repository.csprojResolveAssemblyReference.cache
-C:\Projects\EicmApi\Eicm.Repository\obj\Debug\netstandard1.4\Eicm.Repository.AssemblyInfo.cs
-C:\Projects\EicmApi\Eicm.Repository\obj\Debug\netstandard1.4\Eicm.Repository.dll
-C:\Projects\EicmApi\Eicm.Repository\obj\Debug\netstandard1.4\Eicm.Repository.pdb

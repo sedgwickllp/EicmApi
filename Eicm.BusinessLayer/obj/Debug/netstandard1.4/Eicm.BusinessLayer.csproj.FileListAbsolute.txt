@@ -1,7 +1,0 @@
-C:\Projects\EicmApi\Eicm.BusinessLayer\bin\Debug\netstandard1.4\Eicm.BusinessLayer.deps.json
-C:\Projects\EicmApi\Eicm.BusinessLayer\bin\Debug\netstandard1.4\Eicm.BusinessLayer.dll
-C:\Projects\EicmApi\Eicm.BusinessLayer\bin\Debug\netstandard1.4\Eicm.BusinessLayer.pdb
-C:\Projects\EicmApi\Eicm.BusinessLayer\obj\Debug\netstandard1.4\Eicm.BusinessLayer.csprojResolveAssemblyReference.cache
-C:\Projects\EicmApi\Eicm.BusinessLayer\obj\Debug\netstandard1.4\Eicm.BusinessLayer.AssemblyInfo.cs
-C:\Projects\EicmApi\Eicm.BusinessLayer\obj\Debug\netstandard1.4\Eicm.BusinessLayer.dll
-C:\Projects\EicmApi\Eicm.BusinessLayer\obj\Debug\netstandard1.4\Eicm.BusinessLayer.pdb
