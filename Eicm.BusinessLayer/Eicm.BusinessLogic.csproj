@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0B994C21-7529-4153-959C-73DC2F99C3C6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Eicm.BusinessLogic</RootNamespace>
+    <AssemblyName>Eicm.BusinessLogic</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.4.10\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataObjects\TicketAddDTO.cs" />
+    <Compile Include="DataObjects\TicketModel.cs" />
+    <Compile Include="DataObjects\TicketDTO.cs" />
+    <Compile Include="DataObjects\TicketNoteModel.cs" />
+    <Compile Include="DataObjects\TypeCodes.cs" />
+    <Compile Include="DataObjects\TypeCodeValue.cs" />
+    <Compile Include="ITicketBusinessLogic.cs" />
+    <Compile Include="ITicketNoteBusinessLogic.cs" />
+    <Compile Include="ITypeCodeBusinessLogic.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TicketBusinessLogic.cs" />
+    <Compile Include="TicketNoteBusinessLogic.cs" />
+    <Compile Include="TypeCodeBusinessLogic.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Eicm.Core\Eicm.Core.csproj">
+      <Project>{D6C7243F-F6A6-42E4-9972-C8DFB134E01F}</Project>
+      <Name>Eicm.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eicm.DataLayer\Eicm.DataLayer.csproj">
+      <Project>{383B2C5E-A88B-4486-B160-0047724CDC19}</Project>
+      <Name>Eicm.DataLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eicm.Repository\Eicm.Repository.csproj">
+      <Project>{57BDB7A2-784B-4757-9D71-8AF6FA68388D}</Project>
+      <Name>Eicm.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

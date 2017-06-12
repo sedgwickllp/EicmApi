@@ -1,0 +1,5 @@
+C:\Projects\EicmApi\Eicm.Core\bin\Debug\Eicm.Core.dll
+C:\Projects\EicmApi\Eicm.Core\bin\Debug\Eicm.Core.pdb
+C:\Projects\EicmApi\Eicm.Core\obj\Debug\Eicm.Core.csprojResolveAssemblyReference.cache
+C:\Projects\EicmApi\Eicm.Core\obj\Debug\Eicm.Core.dll
+C:\Projects\EicmApi\Eicm.Core\obj\Debug\Eicm.Core.pdb
