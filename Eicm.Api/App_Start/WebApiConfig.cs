@@ -1,7 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web.Http;
+using System.Web.Mvc;
+using Autofac;
+using Autofac.Integration.Mvc;
+using Autofac.Integration.WebApi;
+using Eicm.Api.Controllers;
+using Eicm.BusinessLogic;
+using Eicm.Repository;
+using Microsoft.Owin.Cors;
+using Owin;
 
 namespace Eicm.Api
 {

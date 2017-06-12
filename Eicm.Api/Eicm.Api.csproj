@@ -49,6 +49,9 @@
     <Reference Include="Autofac.Extras.NLog, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.Extras.NLog.1.3.0\lib\net451\Autofac.Extras.NLog.dll</HintPath>
     </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Mvc5.4.0.2\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Autofac.Integration.Owin, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.Owin.4.0.0\lib\net45\Autofac.Integration.Owin.dll</HintPath>
     </Reference>
@@ -146,6 +149,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AutofacWebapiConfig.cs" />
+    <Compile Include="App_Start\Bootstrapper.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
@@ -154,7 +159,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -177,6 +181,10 @@
     <ProjectReference Include="..\Eicm.Core\Eicm.Core.csproj">
       <Project>{D6C7243F-F6A6-42E4-9972-C8DFB134E01F}</Project>
       <Name>Eicm.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eicm.DataLayer\Eicm.DataLayer.csproj">
+      <Project>{383B2C5E-A88B-4486-B160-0047724CDC19}</Project>
+      <Name>Eicm.DataLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\Eicm.Repository\Eicm.Repository.csproj">
       <Project>{57BDB7A2-784B-4757-9D71-8AF6FA68388D}</Project>

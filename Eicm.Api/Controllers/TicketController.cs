@@ -36,7 +36,7 @@ namespace Eicm.Api.Controllers
                 {
                     return NotFound();
                 }
-                return Ok(ticket);
+                return Ok(ticket.Payload);
             }
             catch (Exception ex)
             {

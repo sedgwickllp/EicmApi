@@ -14,6 +14,9 @@ namespace Eicm.Api
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+
+            Bootstrapper.Run();
+
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             
