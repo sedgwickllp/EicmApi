@@ -18,19 +18,12 @@ namespace Eicm.BusinessLogic.DataObjects
         {
             Id = note.Id;
             TicketId = note.TicketId;
-            CreatedBy = note.CreatedByUserId;//.EnteredBy;
+            CreatedBy = note.CreatedByUserId;
             Comment = note.Comment;
             CreatedDateTime = note.CreatedDateTime;
             ActiveInd = note.IsActive;
             VisibleInd = note.IsVisibleToAll;
            
-        }
-
-        public TicketNoteModel() { }
-
-        public static explicit operator TicketNoteModel(TicketComment v)
-        {
-            throw new NotImplementedException();
         }
     }
 }

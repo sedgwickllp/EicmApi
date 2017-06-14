@@ -18,5 +18,14 @@ namespace Eicm.Core
                     Active = itemType.GetType().GetTypeInfo().GetDeclaredField(itemType.ToString()).GetCustomAttribute<ActiveAttribute>().Value 
                 }).ToList();
         }
+
+        public static string GetEnumDisplayName(this Enum enumType)
+        {
+            return enumType.GetType().GetMember(enumType.ToString())
+                .First()
+                .GetCustomAttribute<DisplayNameAttribute>()
+                .Value;
+                
+        }
     }
 }

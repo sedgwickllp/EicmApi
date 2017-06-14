@@ -25,6 +25,7 @@ namespace Eicm.DataLayer.Entities.Tickets
         public int? SubCategoryId { get; set; }
         public bool IsConfidential { get; set; }
         public bool IsVip { get; set; }
+        public bool IsDeleted { get; set; }
         public virtual List<TicketComment> Comments { get; set; }
 
         

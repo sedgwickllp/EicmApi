@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
-using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Eicm.BusinessLogic.DataObjects;
 using Eicm.Core.Extensions;
-using Eicm.DataLayer.Entities.Tickets;
 using Eicm.Repository;
 using NLog;
-using TicketNoteModel = Eicm.BusinessLogic.DataObjects.TicketNoteModel;
+
 namespace Eicm.BusinessLogic
 {
     public class TicketNoteBusinessLogic : ITicketNoteBusinessLogic
@@ -32,7 +31,7 @@ namespace Eicm.BusinessLogic
                 return new CommonResult<TicketNoteModel>(null, dbnote.ResultCode, dbnote.Message);
             }
             _logger.Info("Note retrieved");
-            return new CommonResult<TicketNoteModel>((TicketNoteModel)dbnote.Payload, dbnote.ResultCode); 
+            return new CommonResult<TicketNoteModel>(new TicketNoteModel(dbnote.Payload), dbnote.ResultCode); 
         }
         
         public async Task<ICommonResult<List<TicketNoteModel>>> GetTicketNotesAsync()
@@ -41,7 +40,7 @@ namespace Eicm.BusinessLogic
 
             if (dbnoteList.ResultCode)
             {
-                var noteList = dbnoteList.Payload.Select(note => (TicketNoteModel) note).ToList();
+                var noteList = dbnoteList.Payload.Select(note => new TicketNoteModel(note)).ToList();
                 return new CommonResult<List<TicketNoteModel>>(noteList, dbnoteList.ResultCode);
             }
 

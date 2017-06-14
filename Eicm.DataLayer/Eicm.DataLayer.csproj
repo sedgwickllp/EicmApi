@@ -50,7 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutoFacModule.cs" />
     <Compile Include="CoreDbContext.cs" />
     <Compile Include="Entities\Assets\Assets.cs" />
     <Compile Include="Entities\Assets\AssetType.cs" />
@@ -69,6 +68,14 @@
     <Compile Include="Migrations\201706072058443_reset.Designer.cs">
       <DependentUpon>201706072058443_reset.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706121854482_newTicketDetails.cs" />
+    <Compile Include="Migrations\201706121854482_newTicketDetails.Designer.cs">
+      <DependentUpon>201706121854482_newTicketDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706121909340_updateTicketDetails.cs" />
+    <Compile Include="Migrations\201706121909340_updateTicketDetails.Designer.cs">
+      <DependentUpon>201706121909340_updateTicketDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -85,6 +92,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706072058443_reset.resx">
       <DependentUpon>201706072058443_reset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706121854482_newTicketDetails.resx">
+      <DependentUpon>201706121854482_newTicketDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706121909340_updateTicketDetails.resx">
+      <DependentUpon>201706121909340_updateTicketDetails.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Eicm.BusinessLogic
 {
-    public interface ITypeCodeBusinessLogic
+    public interface ITypeCodesBusinessLogic
     {
         Task<List<TypeCodeValue>> GetTypeCodeValues<T>();      
         Task<List<TypeCodeValue>> GetTypeCodeValues(string typeCode);

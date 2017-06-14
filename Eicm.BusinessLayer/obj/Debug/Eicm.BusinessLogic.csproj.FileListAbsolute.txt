@@ -4,7 +4,6 @@ C:\Projects\EicmApi\Eicm.BusinessLayer\bin\Debug\Eicm.Core.dll
 C:\Projects\EicmApi\Eicm.BusinessLayer\bin\Debug\Eicm.DataLayer.dll
 C:\Projects\EicmApi\Eicm.BusinessLayer\bin\Debug\Eicm.Repository.dll
 C:\Projects\EicmApi\Eicm.BusinessLayer\bin\Debug\NLog.dll
-C:\Projects\EicmApi\Eicm.BusinessLayer\bin\Debug\Autofac.dll
 C:\Projects\EicmApi\Eicm.BusinessLayer\bin\Debug\EntityFramework.dll
 C:\Projects\EicmApi\Eicm.BusinessLayer\bin\Debug\Eicm.Core.pdb
 C:\Projects\EicmApi\Eicm.BusinessLayer\bin\Debug\Eicm.DataLayer.pdb
@@ -12,7 +11,6 @@ C:\Projects\EicmApi\Eicm.BusinessLayer\bin\Debug\Eicm.DataLayer.dll.config
 C:\Projects\EicmApi\Eicm.BusinessLayer\bin\Debug\Eicm.Repository.pdb
 C:\Projects\EicmApi\Eicm.BusinessLayer\bin\Debug\Eicm.Repository.dll.config
 C:\Projects\EicmApi\Eicm.BusinessLayer\bin\Debug\NLog.xml
-C:\Projects\EicmApi\Eicm.BusinessLayer\bin\Debug\Autofac.xml
 C:\Projects\EicmApi\Eicm.BusinessLayer\bin\Debug\EntityFramework.xml
 C:\Projects\EicmApi\Eicm.BusinessLayer\obj\Debug\Eicm.BusinessLogic.csprojResolveAssemblyReference.cache
 C:\Projects\EicmApi\Eicm.BusinessLayer\obj\Debug\Eicm.BusinessLogic.dll

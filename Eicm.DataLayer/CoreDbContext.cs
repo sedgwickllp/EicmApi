@@ -1,5 +1,4 @@
 ﻿using System.Data.Entity;
-using Eicm.DataLayer.Entities.Assets;
 using Eicm.DataLayer.Entities.Tickets;
 using Eicm.DataLayer.Entities.TypeCodes;
 

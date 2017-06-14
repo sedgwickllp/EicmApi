@@ -6,14 +6,12 @@ C:\Projects\EicmApi\Eicm.Repository\bin\Debug\Eicm.DataLayer.dll
 C:\Projects\EicmApi\Eicm.Repository\bin\Debug\EntityFramework.dll
 C:\Projects\EicmApi\Eicm.Repository\bin\Debug\EntityFramework.SqlServer.dll
 C:\Projects\EicmApi\Eicm.Repository\bin\Debug\NLog.dll
-C:\Projects\EicmApi\Eicm.Repository\bin\Debug\Autofac.dll
 C:\Projects\EicmApi\Eicm.Repository\bin\Debug\Eicm.Core.pdb
 C:\Projects\EicmApi\Eicm.Repository\bin\Debug\Eicm.DataLayer.pdb
 C:\Projects\EicmApi\Eicm.Repository\bin\Debug\Eicm.DataLayer.dll.config
 C:\Projects\EicmApi\Eicm.Repository\bin\Debug\EntityFramework.xml
 C:\Projects\EicmApi\Eicm.Repository\bin\Debug\EntityFramework.SqlServer.xml
 C:\Projects\EicmApi\Eicm.Repository\bin\Debug\NLog.xml
-C:\Projects\EicmApi\Eicm.Repository\bin\Debug\Autofac.xml
 C:\Projects\EicmApi\Eicm.Repository\obj\Debug\Eicm.Repository.csprojResolveAssemblyReference.cache
 C:\Projects\EicmApi\Eicm.Repository\obj\Debug\Eicm.Repository.dll
 C:\Projects\EicmApi\Eicm.Repository\obj\Debug\Eicm.Repository.pdb

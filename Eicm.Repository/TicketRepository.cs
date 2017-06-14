@@ -84,7 +84,7 @@ namespace Eicm.Repository
                     CreatedDateTime = DateTime.Now,
                     ModifedByUserId = userId,
                     ModifiedDateTime = DateTime.Now,
-                    IsActive = true
+                    IsDeleted = false
                 };
 
                 _coreDbContext.Tickets.Add(ticket);

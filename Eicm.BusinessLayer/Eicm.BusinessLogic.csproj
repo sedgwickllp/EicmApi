@@ -51,11 +51,11 @@
     <Compile Include="DataObjects\TypeCodeValue.cs" />
     <Compile Include="ITicketBusinessLogic.cs" />
     <Compile Include="ITicketNoteBusinessLogic.cs" />
-    <Compile Include="ITypeCodeBusinessLogic.cs" />
+    <Compile Include="ITypeCodesBusinessLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TicketBusinessLogic.cs" />
     <Compile Include="TicketNoteBusinessLogic.cs" />
-    <Compile Include="TypeCodeBusinessLogic.cs" />
+    <Compile Include="TypeCodesBusinessLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Eicm.Core\Eicm.Core.csproj">

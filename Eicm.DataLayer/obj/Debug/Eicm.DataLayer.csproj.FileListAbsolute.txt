@@ -11,6 +11,8 @@ C:\Projects\EicmApi\Eicm.DataLayer\bin\Debug\EntityFramework.xml
 C:\Projects\EicmApi\Eicm.DataLayer\bin\Debug\EntityFramework.SqlServer.xml
 C:\Projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.csprojResolveAssemblyReference.cache
 C:\Projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.Migrations.reset.resources
+C:\Projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.Migrations.newTicketDetails.resources
+C:\Projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.Migrations.updateTicketDetails.resources
 C:\Projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.csproj.GenerateResource.Cache
 C:\Projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.dll
 C:\Projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.pdb

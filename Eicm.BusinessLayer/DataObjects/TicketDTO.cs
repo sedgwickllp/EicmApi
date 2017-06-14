@@ -1,4 +1,7 @@
 ﻿using System.Collections.Generic;
+using Eicm.Core;
+using Eicm.Core.Enums;
+using Eicm.DataLayer.Entities.Tickets;
 
 namespace Eicm.BusinessLogic.DataObjects
 {
@@ -12,28 +15,51 @@ namespace Eicm.BusinessLogic.DataObjects
 
     public class TicketDetailModel
     {
-        public TicketDetailModel(int ticketId,string component, string subComponent, string category, string createdDate, string status, string priority, string source, string description)
+        public TicketDetailModel(int ticketId, string category, string subCategory, string origin, string createdDate, string status, string priority, string cause, string summary, bool isDeleted, bool isConfidential, bool isVip)
         {
             TicketId = ticketId;
-            Component = component;
-            SubComponent = subComponent;
             Category = category;
-            CreatedDate = createdDate;
+            SubCategory = subCategory;
+            Origin = origin;
+            CreatedDateTime = createdDate;
             Status = status;
             Priority = priority;
-            Source = source;
-            Description = description;
+            Cause = cause;
+            Summary = summary;
+            IsDeleted = isDeleted;
+            IsConfidential = isConfidential;
+            IsVip = isVip;
         }
-        public int TicketId { get; }
-        public string Component { get; }
-        public string SubComponent { get; }
-        public string Category { get; }
-        public string CreatedDate { get; }
-        public string Status { get; }
-        public string Priority { get; }
-        public string Source { get; }
-        public string Description { get; }
-        
+
+        public TicketDetailModel(Ticket ticket)
+        {
+            TicketId = ticket.Id;
+            Status = ((StatusType)ticket.StatusId).GetEnumDisplayName();
+            Priority = ((PriorityType)ticket.PriorityId).GetEnumDisplayName();
+            Origin = ((OriginType)ticket.OriginId).GetEnumDisplayName();
+            if (ticket.CategoryId != null) Category = ((CategoryType)ticket.CategoryId).GetEnumDisplayName();
+            if (ticket.SubCategoryId != null) Category = ((SubCategoryType)ticket.SubCategoryId).GetEnumDisplayName();
+            if (ticket.CauseId != null) Category = ((CauseType)ticket.CauseId).GetEnumDisplayName();
+            CreatedDateTime = ticket.CreatedDateTime.ToShortDateString();
+            Summary = ticket.Summary;
+            IsDeleted = ticket.IsDeleted;
+            IsConfidential = ticket.IsConfidential;
+            IsVip = ticket.IsVip;
+        }
+
+        public int TicketId { get; set; }
+        public string Category { get; set; }
+        public string SubCategory { get; set; }
+        public string Origin { get; set; }
+        public string CreatedDateTime { get; set; }
+        public string Status { get; set; }
+        public string Priority { get; set; }
+        public string Cause { get; set; }
+        public string Summary { get; set; }
+        public bool IsDeleted { get; set; }
+        public bool IsConfidential { get; set; }
+        public bool IsVip { get; set; }
+
     }
 
     public class TicketRequesterModel

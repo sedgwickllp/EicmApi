@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Eicm.BusinessLogic.DataObjects;
@@ -49,7 +48,8 @@ namespace Eicm.BusinessLogic
             var ticket = new TicketDTO();
             //ticket.TicketDetail = new TicketDetailModel(dbticket.Payload.Id, dbticket.Payload.Description);
             //ticket.TicketRequester = new TicketRequesterModel(dbticket.Payload.RequestedBy, "test", "email", "1111111111", "KC");
-            ticket.TicketDetail = new TicketDetailModel(id, "Software", "Outlook", "Password Reset", "04/21/2017", "Open", "High", "Email", "descripton from service");
+            ticket.TicketDetail = new TicketDetailModel(dbticket.Payload);
+            //ticket.TicketDetail = new TicketDetailModel(id, "Software", "Outlook", "Password Reset", "04/21/2017", "Open", "High", "Email", "descripton from service");
             ticket.TicketRequester = new TicketRequesterModel("Han", "Solo", "han.solo@milleniumfalcon.com", "111-111-1111", "Kansas City, USA");
             ticket.TicketActivity = new List<TicketActivityModel>();
             ticket.TicketActivity.Add(new TicketActivityModel("Princess Leia", "April 30 3:30pm", "created ticket", false, true, false));
@@ -107,15 +107,15 @@ namespace Eicm.BusinessLogic
             {
                 Id = dtoTicket.Id,
                 //RequestedBy = dtoTicket.Requestor,
-                Summary = dtoTicket.Description,
+                Summary = dtoTicket.Summary,
                 CategoryId = AttributeMethods.GetByDisplayed<PriorityType>(dtoTicket.Category).GetHashCode(),//dtoTicket.Category,
                 StatusId = AttributeMethods.GetByDisplayed<PriorityType>(dtoTicket.Status).GetHashCode(),//dtoTicket.Status,
-                IsActive = dtoTicket.ActiveInd,
+                IsActive = dtoTicket.IsDeleted,
                 ModifiedDateTime = dtoTicket.ModifiedDate,
                 //Owner = dtoTicket.Owner,
                 PriorityId = AttributeMethods.GetByDisplayed<PriorityType>(dtoTicket.Priority).GetHashCode(),
                 //Notes =  TicketNoteBusinessLogic.PopulateNote(dbticket.Notes),
-                CreatedDateTime = dtoTicket.EnteredDate
+                CreatedDateTime = dtoTicket.CreatedDateTime
             };
 
             return ticket;
