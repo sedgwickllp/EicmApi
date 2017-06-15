@@ -3,7 +3,7 @@ using System;
 
 namespace Eicm.BusinessLogic.DataObjects
 {
-    public class TicketNoteModel
+    public class TicketCommentModel
     {
         public int Id { get; set; }
         public int TicketId { get; set; }
@@ -14,7 +14,7 @@ namespace Eicm.BusinessLogic.DataObjects
         public bool ActiveInd { get; set; }
         public bool VisibleInd { get; set; }
 
-        public TicketNoteModel(TicketComment note)
+        public TicketCommentModel(TicketComment note)
         {
             Id = note.Id;
             TicketId = note.TicketId;

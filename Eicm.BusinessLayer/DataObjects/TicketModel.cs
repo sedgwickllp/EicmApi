@@ -21,7 +21,7 @@ namespace Eicm.BusinessLogic.DataObjects
         public bool IsDeleted { get; set; }
         public bool IsConfidential { get; set; }
         public string Owner { get; set; }
-        public ICollection<TicketNoteModel> Notes { get; set; }
+        public ICollection<TicketCommentModel> Notes { get; set; }
         public TicketModel(Ticket ticket)
         {
             Id = ticket.Id;

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using NLog;
@@ -11,9 +12,11 @@ namespace Eicm.Api.Controllers
     {
         private readonly Logger _logger = LogManager.GetCurrentClassLogger();
         private readonly ITicketBusinessLogic _ticketBusinessLogic;
+        //private readonly ITicketCommentsBusinessLogic _ticketCommentsBusinessLogic;
         public TicketsController(ITicketBusinessLogic ticketBusinessLogic)
         {
             _ticketBusinessLogic = ticketBusinessLogic;
+            //_ticketCommentsBusinessLogic = ticketCommentsBusinessLogic;
         }
 
         [HttpGet]
@@ -34,6 +37,7 @@ namespace Eicm.Api.Controllers
                 {
                     return NotFound();
                 }
+
                 return Ok(ticket.Payload);
             }
             catch (Exception ex)
@@ -94,5 +98,28 @@ namespace Eicm.Api.Controllers
             }
             return Ok(ticketId);
         }
+
+        //[HttpPost]
+        //[Route("api/tickets/ticketComments/")]
+        //public async Task<IHttpActionResult> Add([FromBody] TicketCommentAddModel ticketComment)
+        //{
+        //    if (ticketComment == null)
+        //    {
+        //        return BadRequest("Ticket object was null");
+        //    }
+        //    else if (ticketComment.Comment == null)
+        //    {
+        //        return BadRequest("Comment cannot be null");
+        //    }
+        //    int userId = 1; //TODO change to get userId
+        //    _logger.Info("Adding ticketNote");
+
+        //    var ticketNoteId = await _ticketCommentsBusinessLogic.AddTicketCommentAsync(ticketComment, userId);
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+        //    return Ok(ticketNoteId);
+        //}
     }
 }

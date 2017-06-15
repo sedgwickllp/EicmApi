@@ -100,17 +100,20 @@ namespace Eicm.BusinessLogic.DataObjects
 
     public class TicketCommentsModel
     {
-        public TicketCommentsModel(string un, string cd, string com, bool isVisible)
+        public TicketCommentsModel(string un, string cd, string com, bool isVisible, int ticketId)
         {
             UserName = un;
             CreatedDateTime = cd;
             Comment = com;
             IsVisible = isVisible;
+            TicketId = ticketId;
+
         }
         public string UserName { get; }
         public string CreatedDateTime { get; }
         public string Comment { get; }
         public bool IsVisible { get; }
+        public int TicketId { get; }
     }
 
 }

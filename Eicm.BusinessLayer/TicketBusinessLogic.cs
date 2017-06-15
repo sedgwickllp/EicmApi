@@ -53,8 +53,9 @@ namespace Eicm.BusinessLogic
             ticket.TicketRequester = new TicketRequesterModel("Han", "Solo", "han.solo@milleniumfalcon.com", "111-111-1111", "Kansas City, USA");
             ticket.TicketActivity = new List<TicketActivityModel>();
             ticket.TicketActivity.Add(new TicketActivityModel("Princess Leia", "April 30 3:30pm", "created ticket", false, true, false));
-            ticket.TicketActivity.AddRange(dbticket.Payload.Comments?.Select(x => new TicketActivityModel(dbticket.Payload.Comments.IndexOf(x) % 2 == 0 ? "Luke Skywalker" : "Princess Leia", x.CreatedDateTime.ToString("MMMM dd h:mm tt"), "comment added", true, false, false)));
-            ticket.TicketComments = dbticket.Payload.Comments?.Select(x => new TicketCommentsModel(dbticket.Payload.Comments.IndexOf(x) % 2 == 0 ? "Luke Skywalker" : "Princess Leia", x.CreatedDateTime.ToString("MM/dd/yyyy") , x.Comment, x.IsVisibleToAll)).ToList();
+            //ticket.TicketActivity.AddRange(dbticket.Payload.Comments?.Select(x => new TicketActivityModel(dbticket.Payload.Comments.IndexOf(x) % 2 == 0 ? "Luke Skywalker" : "Princess Leia", x.CreatedDateTime.ToString("MMMM dd h:mm tt"), "comment added", true, false, false)));
+            ticket.TicketActivity.Add(new TicketActivityModel("Princess Leia", "May 3 10:09pm", "modified ticket", false, false, true));
+            ticket.TicketComments = dbticket.Payload.Comments?.Select(x => new TicketCommentsModel(dbticket.Payload.Comments.IndexOf(x) % 2 == 0 ? "user1" : "user2", x.CreatedDateTime.ToString("MM/dd/yyyy") , x.Comment, x.IsVisibleToAll, x.TicketId)).ToList();
             //ticket.TicketComments = new List<TicketCommentsModel>();
             //ticket.TicketComments.Add(new TicketCommentsModel("Princess Leia", "04/20/2017", "May the force be with you"));
             return new CommonResult<TicketDTO>(ticket, true); ;

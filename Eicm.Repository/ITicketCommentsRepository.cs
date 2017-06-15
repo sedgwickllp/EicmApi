@@ -9,7 +9,7 @@ namespace Eicm.Repository
     {
         Task<ICommonResult<TicketComment>> GetTicketNoteByIdAsync(int id);
         Task<ICommonResult<List<TicketComment>>> GetTicketNotesAsync();
-        Task<ICommonResult<int>> AddTicketNoteAsync(TicketComment note);
+        Task<ICommonResult<int>> AddTicketCommentAsync(int ticketId, string comment, bool isVisibleToAll, int userId);
         Task<ICommonResult<bool>> UpdateTicketNoteAsync(TicketComment note);
         Task<ICommonResult<bool>> DeleteTicketNoteAsync(int id);
     }

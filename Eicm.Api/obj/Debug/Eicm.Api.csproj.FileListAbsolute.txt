@@ -1,11 +1,7 @@
 C:\Projects\EicmApi\Eicm.Api\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
 C:\Projects\EicmApi\Eicm.Api\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-C:\Projects\EicmApi\Eicm.Api\bin\roslyn\System.IO.Compression.dll
 C:\Projects\EicmApi\Eicm.Api\bin\roslyn\System.IO.FileSystem.Primitives.dll
 C:\Projects\EicmApi\Eicm.Api\bin\roslyn\System.Security.Cryptography.Primitives.dll
-C:\Projects\EicmApi\Eicm.Api\bin\roslyn\System.Text.Encoding.CodePages.dll
-C:\Projects\EicmApi\Eicm.Api\bin\roslyn\System.Xml.ReaderWriter.dll
-C:\Projects\EicmApi\Eicm.Api\bin\roslyn\System.Xml.XPath.XDocument.dll
 C:\Projects\EicmApi\Eicm.Api\bin\roslyn\VBCSCompiler.exe
 C:\Projects\EicmApi\Eicm.Api\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 C:\Projects\EicmApi\Eicm.Api\bin\roslyn\Microsoft.CodeAnalysis.dll
@@ -32,6 +28,7 @@ C:\Projects\EicmApi\Eicm.Api\bin\roslyn\System.AppContext.dll
 C:\Projects\EicmApi\Eicm.Api\bin\roslyn\System.Console.dll
 C:\Projects\EicmApi\Eicm.Api\bin\roslyn\System.Diagnostics.Process.dll
 C:\Projects\EicmApi\Eicm.Api\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Projects\EicmApi\Eicm.Api\bin\roslyn\System.IO.Compression.dll
 C:\Projects\EicmApi\Eicm.Api\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
 C:\Projects\EicmApi\Eicm.Api\bin\roslyn\System.IO.Pipes.dll
 C:\Projects\EicmApi\Eicm.Api\bin\roslyn\System.Security.AccessControl.dll
@@ -39,13 +36,19 @@ C:\Projects\EicmApi\Eicm.Api\bin\roslyn\System.Security.Claims.dll
 C:\Projects\EicmApi\Eicm.Api\bin\roslyn\System.Security.Cryptography.Encoding.dll
 C:\Projects\EicmApi\Eicm.Api\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
 C:\Projects\EicmApi\Eicm.Api\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Projects\EicmApi\Eicm.Api\bin\roslyn\System.Text.Encoding.CodePages.dll
 C:\Projects\EicmApi\Eicm.Api\bin\roslyn\System.Threading.Thread.dll
+C:\Projects\EicmApi\Eicm.Api\bin\roslyn\System.Xml.ReaderWriter.dll
 C:\Projects\EicmApi\Eicm.Api\bin\roslyn\System.Xml.XmlDocument.dll
 C:\Projects\EicmApi\Eicm.Api\bin\roslyn\System.Xml.XPath.dll
+C:\Projects\EicmApi\Eicm.Api\bin\roslyn\System.Xml.XPath.XDocument.dll
 C:\Projects\EicmApi\Eicm.Api\bin\roslyn\vbc.exe
 C:\Projects\EicmApi\Eicm.Api\bin\roslyn\vbc.exe.config
 C:\Projects\EicmApi\Eicm.Api\bin\roslyn\vbc.rsp
 C:\Projects\EicmApi\Eicm.Api\bin\roslyn\VBCSCompiler.exe.config
+C:\Projects\EicmApi\Eicm.Api\bin\Eicm.Api.dll.config
+C:\Projects\EicmApi\Eicm.Api\bin\Eicm.Api.dll
+C:\Projects\EicmApi\Eicm.Api\bin\Eicm.Api.pdb
 C:\Projects\EicmApi\Eicm.Api\bin\Autofac.dll
 C:\Projects\EicmApi\Eicm.Api\bin\Autofac.Extras.NLog.dll
 C:\Projects\EicmApi\Eicm.Api\bin\Autofac.Integration.Mvc.dll
@@ -68,6 +71,7 @@ C:\Projects\EicmApi\Eicm.Api\bin\Owin.dll
 C:\Projects\EicmApi\Eicm.Api\bin\System.Net.Http.Formatting.dll
 C:\Projects\EicmApi\Eicm.Api\bin\System.Web.Cors.dll
 C:\Projects\EicmApi\Eicm.Api\bin\System.Web.Helpers.dll
+C:\Projects\EicmApi\Eicm.Api\bin\System.Web.Http.Cors.dll
 C:\Projects\EicmApi\Eicm.Api\bin\System.Web.Http.dll
 C:\Projects\EicmApi\Eicm.Api\bin\System.Web.Http.Owin.dll
 C:\Projects\EicmApi\Eicm.Api\bin\System.Web.Http.WebHost.dll
@@ -96,6 +100,7 @@ C:\Projects\EicmApi\Eicm.Api\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Projects\EicmApi\Eicm.Api\bin\Newtonsoft.Json.xml
 C:\Projects\EicmApi\Eicm.Api\bin\NLog.xml
 C:\Projects\EicmApi\Eicm.Api\bin\System.Web.Helpers.xml
+C:\Projects\EicmApi\Eicm.Api\bin\System.Web.Http.Cors.xml
 C:\Projects\EicmApi\Eicm.Api\bin\System.Web.Http.Owin.xml
 C:\Projects\EicmApi\Eicm.Api\bin\System.Web.Mvc.xml
 C:\Projects\EicmApi\Eicm.Api\bin\System.Web.Razor.xml
@@ -109,8 +114,3 @@ C:\Projects\EicmApi\Eicm.Api\bin\EntityFramework.xml
 C:\Projects\EicmApi\Eicm.Api\obj\Debug\Eicm.Api.csprojResolveAssemblyReference.cache
 C:\Projects\EicmApi\Eicm.Api\obj\Debug\Eicm.Api.dll
 C:\Projects\EicmApi\Eicm.Api\obj\Debug\Eicm.Api.pdb
-C:\Projects\EicmApi\Eicm.Api\bin\Eicm.Api.dll.config
-C:\Projects\EicmApi\Eicm.Api\bin\Eicm.Api.dll
-C:\Projects\EicmApi\Eicm.Api\bin\Eicm.Api.pdb
-C:\Projects\EicmApi\Eicm.Api\bin\System.Web.Http.Cors.dll
-C:\Projects\EicmApi\Eicm.Api\bin\System.Web.Http.Cors.xml

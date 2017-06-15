@@ -50,18 +50,26 @@ namespace Eicm.Repository
             }
         }
 
-        /// <summary>
-        /// Creates a new note.
-        /// </summary>
-        /// <param name="note">Note object from the front-end</param>
-        /// <returns>Id of the note created.</returns>
-        public async Task<ICommonResult<int>> AddTicketNoteAsync(TicketComment note)
+        
+        public async Task<ICommonResult<int>> AddTicketCommentAsync(int ticketId, string comment, bool isVisibleToAll, int userId)
         {
             try
             {
-                _coreDbContext.TicketComments.Add(note);
+                var ticketComment = new TicketComment
+                {
+                    TicketId = ticketId,
+                    Comment = comment,
+                    IsVisibleToAll = isVisibleToAll,
+                    IsActive = true,
+                    CreatedByUserId = userId,
+                    CreatedDateTime = DateTime.Now,
+                    ModifedByUserId = userId,
+                    ModifiedDateTime = DateTime.Now
+                };
+
+        _coreDbContext.TicketComments.Add(ticketComment);
                 await _coreDbContext.SaveChangesAsync();
-                return new CommonResult<int>(note.Id, ResultCode.Success);
+                return new CommonResult<int>(ticketComment.Id, ResultCode.Success);
             }
             catch (Exception ex)
             {

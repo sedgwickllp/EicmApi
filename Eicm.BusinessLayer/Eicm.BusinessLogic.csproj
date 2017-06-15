@@ -44,17 +44,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataObjects\TicketAddDTO.cs" />
+    <Compile Include="DataObjects\TicketCommentAddModel.cs" />
     <Compile Include="DataObjects\TicketModel.cs" />
     <Compile Include="DataObjects\TicketDTO.cs" />
     <Compile Include="DataObjects\TicketNoteModel.cs" />
     <Compile Include="DataObjects\TypeCodes.cs" />
     <Compile Include="DataObjects\TypeCodeValue.cs" />
     <Compile Include="ITicketBusinessLogic.cs" />
-    <Compile Include="ITicketNoteBusinessLogic.cs" />
+    <Compile Include="ITicketCommentsBusinessLogic.cs" />
     <Compile Include="ITypeCodesBusinessLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TicketBusinessLogic.cs" />
-    <Compile Include="TicketNoteBusinessLogic.cs" />
+    <Compile Include="TicketCommentsBusinessLogic.cs" />
     <Compile Include="TypeCodesBusinessLogic.cs" />
   </ItemGroup>
   <ItemGroup>

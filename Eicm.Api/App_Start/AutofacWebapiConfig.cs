@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
@@ -27,26 +28,27 @@ namespace Eicm.Api
         {
             //Register your Web API controllers.  
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+            var allAssembilies = AppDomain.CurrentDomain.GetAssemblies();
+            builder.RegisterAssemblyModules(allAssembilies);
 
-            builder.RegisterType<CoreDbContext>()
-                .As<ICoreDbContext>()
-                .InstancePerRequest();
+            builder.RegisterType<CoreDbContext>().As<ICoreDbContext>();
+                //.InstancePerRequest();
 
             builder.RegisterType<TicketBusinessLogic>()
-                .As<ITicketBusinessLogic>()
-                .InstancePerRequest();
+                .As<ITicketBusinessLogic>();
+                //.InstancePerRequest();
 
-            builder.RegisterType<TicketNoteBusinessLogic>()
-                .As<ITicketNoteBusinessLogic>()
-                .InstancePerRequest();
+            builder.RegisterType<TicketCommentsBusinessLogic>()
+                .As<ITicketCommentsBusinessLogic>();
+                //.InstancePerRequest();
 
             builder.RegisterType<TicketRepository>()
-                .As<ITicketRepository>()
-                .InstancePerRequest();
+                .As<ITicketRepository>();
+                //.InstancePerRequest();
 
             builder.RegisterType<TicketCommentsRepository>()
-                .As<ITicketCommentsRepository>()
-                .InstancePerRequest();
+                .As<ITicketCommentsRepository>();
+            //.InstancePerRequest();
 
             //Set the dependency resolver to be Autofac.  
             Container = builder.Build();
