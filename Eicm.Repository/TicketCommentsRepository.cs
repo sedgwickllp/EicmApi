@@ -13,10 +13,10 @@ namespace Eicm.Repository
 {
     public class TicketCommentsRepository : ITicketCommentsRepository
     {
-        private readonly CoreDbContext _coreDbContext;
+        private readonly ICoreDbContext _coreDbContext;
         private readonly Logger _logger = LogManager.GetCurrentClassLogger();
 
-        public TicketCommentsRepository(CoreDbContext coreDbContext)
+        public TicketCommentsRepository(ICoreDbContext coreDbContext)
         {
             _coreDbContext = coreDbContext;
         }

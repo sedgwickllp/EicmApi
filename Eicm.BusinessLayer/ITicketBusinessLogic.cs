@@ -12,7 +12,7 @@ namespace Eicm.BusinessLogic
         Task<ICommonResult<List<TicketModel>>> GetTicketsAsync();
         Task<ICommonResult<bool>> DeleteTicketByIdAsync(int id);
         Task<ICommonResult<int>> AddTicketAsync(TicketAddDTO ticket, int userId);
-        Task<ICommonResult<bool>> UpdateTicketAsync(TicketModel ticket);
+        Task<ICommonResult<bool>> UpdateTicketAsync(int id, TicketAddDTO ticket);
         Task<ICommonResult<TicketDTO>> GetTicketDtoByIdAsync(int id);
     }
 }

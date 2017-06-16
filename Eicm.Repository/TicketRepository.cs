@@ -99,10 +99,23 @@ namespace Eicm.Repository
 
         }
 
-        public async Task<ICommonResult<bool>> UpdateTicketAsync(Ticket ticket)
+        public async Task<ICommonResult<bool>> UpdateTicketAsync(int id, string summary, int requesterId, int ownerId, int? cause, int? statusId, 
+            int? priority, int origin, int? category, int? subcategory, bool isConfidential)
         {
             try
             {
+                var ticket = await _coreDbContext.Tickets.SingleAsync(t => t.Id == id);
+                ticket.CategoryId = category;
+                ticket.CategoryId = cause;
+                ticket.IsConfidential = isConfidential;
+                ticket.OriginId = origin;
+                //ticket.OwnerId = ownerId;
+                ticket.PriorityId = priority ?? ticket.PriorityId;
+                //ticket.RequesterId = requesterId;
+                ticket.StatusId = statusId ?? ticket.StatusId;
+                ticket.SubCategoryId = subcategory;
+                ticket.Summary = summary;
+                ticket.IsConfidential = isConfidential;
                 _coreDbContext.Tickets.AddOrUpdate(ticket);
                 await _coreDbContext.SaveChangesAsync();
                 return new CommonResult<bool>(ResultCode.Success);

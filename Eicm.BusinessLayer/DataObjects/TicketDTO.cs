@@ -47,6 +47,8 @@ namespace Eicm.BusinessLogic.DataObjects
             IsVip = ticket.IsVip;
         }
 
+        public TicketDetailModel() { }
+
         public int TicketId { get; set; }
         public string Category { get; set; }
         public string SubCategory { get; set; }

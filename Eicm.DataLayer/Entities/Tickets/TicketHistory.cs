@@ -1,18 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Eicm.Core;
-using Eicm.DataLayer.Entities.TypeCodes;
-using Eicm.Core.Enums;
 
 namespace Eicm.DataLayer.Entities.Tickets
 {
-    [Table("Tickets", Schema = "Tickets")]
-    public class Ticket : EntityBase
+    [Table("Tickets", Schema = "TicketsHistory")]
+    public class TicketHistory
     {
-        [StringLength(200, MinimumLength = 5)]
-        [Required]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int HistoryId { get; set; }
+        public int CreatedByUserId { get; set; }
+        public DateTime CreatedDateTime { get; set; }
+
+        public int TicketId { get; set; }
         public string Summary { get; set; }
         public int RequesterId { get; set; }
         public int? OwnerId { get; set; }
@@ -25,10 +26,6 @@ namespace Eicm.DataLayer.Entities.Tickets
         public bool IsConfidential { get; set; }
         public bool IsVip { get; set; }
         public bool IsDeleted { get; set; }
-        public virtual List<TicketComment> Comments { get; set; }
 
-        
-        public virtual Priority Priority { get; set; }
-        public virtual Origin Origin { get; set; }
     }
 }

@@ -55,7 +55,7 @@ namespace Eicm.BusinessLogic
             ticket.TicketActivity.Add(new TicketActivityModel("Princess Leia", "April 30 3:30pm", "created ticket", false, true, false));
             //ticket.TicketActivity.AddRange(dbticket.Payload.Comments?.Select(x => new TicketActivityModel(dbticket.Payload.Comments.IndexOf(x) % 2 == 0 ? "Luke Skywalker" : "Princess Leia", x.CreatedDateTime.ToString("MMMM dd h:mm tt"), "comment added", true, false, false)));
             ticket.TicketActivity.Add(new TicketActivityModel("Princess Leia", "May 3 10:09pm", "modified ticket", false, false, true));
-            ticket.TicketComments = dbticket.Payload.Comments?.Select(x => new TicketCommentsModel(dbticket.Payload.Comments.IndexOf(x) % 2 == 0 ? "user1" : "user2", x.CreatedDateTime.ToString("MM/dd/yyyy") , x.Comment, x.IsVisibleToAll, x.TicketId)).ToList();
+            ticket.TicketComments = dbticket.Payload.Comments?.Select(x => new TicketCommentsModel("user " + x.CreatedByUserId.ToString(), x.CreatedDateTime.ToString("MM/dd/yyyy") , x.Comment, x.IsVisibleToAll, x.TicketId)).ToList();
             //ticket.TicketComments = new List<TicketCommentsModel>();
             //ticket.TicketComments.Add(new TicketCommentsModel("Princess Leia", "04/20/2017", "May the force be with you"));
             return new CommonResult<TicketDTO>(ticket, true); ;
@@ -86,12 +86,9 @@ namespace Eicm.BusinessLogic
             return new CommonResult<int>(ticketId.Payload, ticketId.ResultCode);
         }
 
-        public async Task<ICommonResult<bool>> UpdateTicketAsync(TicketModel ticket)
+        public async Task<ICommonResult<bool>> UpdateTicketAsync(int id, TicketAddDTO ticket)
         {
-
-            var dbticket = PopulateTicket(ticket);
-
-            var ticketId = await _ticketRepository.UpdateTicketAsync(dbticket);
+            var ticketId = await _ticketRepository.UpdateTicketAsync(id, ticket.Summary, 1, 1, ticket.CauseId, ticket.StatusId, ticket.PriorityId, ticket.OriginId, ticket.CategoryId, ticket.SubcategoryId, ticket.IsConfidential);
             return new CommonResult<bool>(ticketId.ResultCode);
 
         }

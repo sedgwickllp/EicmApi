@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Web.Http;
 using Autofac;
+using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using Eicm.BusinessLogic;
 using Eicm.DataLayer;
@@ -27,6 +28,7 @@ namespace Eicm.Api
         private static IContainer RegisterServices(ContainerBuilder builder)
         {
             //Register your Web API controllers.  
+            builder.RegisterControllers(Assembly.GetExecutingAssembly());
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             var allAssembilies = AppDomain.CurrentDomain.GetAssemblies();
             builder.RegisterAssemblyModules(allAssembilies);

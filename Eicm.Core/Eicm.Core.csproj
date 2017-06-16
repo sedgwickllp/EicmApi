@@ -45,12 +45,14 @@
     <Compile Include="Attributes\DisplayNameAttribute.cs" />
     <Compile Include="Attributes\ParentIdAttribute.cs" />
     <Compile Include="EnumExtensions.cs" />
+    <Compile Include="Enums\ActivityType.cs" />
     <Compile Include="Enums\CategoryType.cs" />
     <Compile Include="Enums\PriorityType.cs" />
     <Compile Include="Enums\CauseType.cs" />
     <Compile Include="Enums\OriginType.cs" />
     <Compile Include="Enums\StatusType.cs" />
     <Compile Include="Enums\SubCategoryType.cs" />
+    <Compile Include="Enums\TicketPropertyType.cs" />
     <Compile Include="EnumValue.cs" />
     <Compile Include="Extensions\CommonResult.cs" />
     <Compile Include="Extensions\ICommonResult.cs" />

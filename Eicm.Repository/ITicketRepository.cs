@@ -12,7 +12,8 @@ namespace Eicm.Repository
         Task<ICommonResult<List<Ticket>>> GetActiveTicketsAsync();
         Task<ICommonResult<int>> AddTicketAsync(string summary, int requesterId, int? ownerId, int? causeId,
             int statusId, int priorityId, int originId, int? categoryId, int? subcategoryId, bool isConfidential, bool isVip, int userId);
-        Task<ICommonResult<bool>> UpdateTicketAsync(Ticket ticket);
+        Task<ICommonResult<bool>> UpdateTicketAsync(int id, string summary, int requesterId, int ownerId, int? cause, int? statusId,
+            int? priority, int origin, int? category, int? subcategory, bool isConfidential);
         Task<ICommonResult<bool>> DeleteTicketAsync(int id);
         void Dispose();
     }

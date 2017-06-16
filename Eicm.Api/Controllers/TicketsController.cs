@@ -5,6 +5,8 @@ using System.Web.Http;
 using NLog;
 using Eicm.BusinessLogic;
 using Eicm.BusinessLogic.DataObjects;
+using Eicm.Core;
+using Eicm.Core.Enums;
 
 namespace Eicm.Api.Controllers
 {
@@ -12,11 +14,9 @@ namespace Eicm.Api.Controllers
     {
         private readonly Logger _logger = LogManager.GetCurrentClassLogger();
         private readonly ITicketBusinessLogic _ticketBusinessLogic;
-        //private readonly ITicketCommentsBusinessLogic _ticketCommentsBusinessLogic;
         public TicketsController(ITicketBusinessLogic ticketBusinessLogic)
         {
             _ticketBusinessLogic = ticketBusinessLogic;
-            //_ticketCommentsBusinessLogic = ticketCommentsBusinessLogic;
         }
 
         [HttpGet]
@@ -99,27 +99,52 @@ namespace Eicm.Api.Controllers
             return Ok(ticketId);
         }
 
-        //[HttpPost]
-        //[Route("api/tickets/ticketComments/")]
-        //public async Task<IHttpActionResult> Add([FromBody] TicketCommentAddModel ticketComment)
-        //{
-        //    if (ticketComment == null)
-        //    {
-        //        return BadRequest("Ticket object was null");
-        //    }
-        //    else if (ticketComment.Comment == null)
-        //    {
-        //        return BadRequest("Comment cannot be null");
-        //    }
-        //    int userId = 1; //TODO change to get userId
-        //    _logger.Info("Adding ticketNote");
+        [HttpPut]
+        [Route("api/tickets/{id}")]
+        public async Task<IHttpActionResult> Update(int id, [FromBody] TicketDetailModel ticket)
+        {
+            _logger.Info("Updating ticket with id = " + id);
+            //if (ticket.TicketId != id)
+            //{
+            //    _logger.Info("Tried to update ticket with mismatched ids. id = " + id + " and ticket.id " + ticket.Id);
+            //    return BadRequest("Id does not match Id from object");
 
-        //    var ticketNoteId = await _ticketCommentsBusinessLogic.AddTicketCommentAsync(ticketComment, userId);
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-        //    return Ok(ticketNoteId);
-        //}
+            //}
+            int? causeId = null;
+            if (!string.IsNullOrEmpty(ticket.Cause))
+            {
+                causeId = AttributeMethods.GetByDisplayed<PriorityType>(ticket.Cause).GetHashCode();
+            }
+
+            int? categoryId = null;
+            if (!string.IsNullOrEmpty(ticket.Category))
+            {
+                categoryId = AttributeMethods.GetByDisplayed<CategoryType>(ticket.Category).GetHashCode();
+            }
+
+            int? subCategoryId = null;
+            if (!string.IsNullOrEmpty(ticket.SubCategory))
+            {
+                subCategoryId = AttributeMethods.GetByDisplayed<CategoryType>(ticket.SubCategory).GetHashCode();
+            }
+
+            var ticketAdd = new TicketAddDTO
+            {
+                Summary = ticket.Summary,
+                RequesterId = null,
+                OwnerId = null,
+                CauseId = causeId,
+                StatusId = AttributeMethods.GetByDisplayed<StatusType>(ticket.Status).GetHashCode(),
+                PriorityId = AttributeMethods.GetByDisplayed<PriorityType>(ticket.Priority).GetHashCode(),
+                OriginId = AttributeMethods.GetByDisplayed<OriginType>(ticket.Origin).GetHashCode(),
+                CategoryId = categoryId,
+                SubcategoryId = subCategoryId,
+                IsConfidential = ticket.IsConfidential
+
+            };
+            var ticketId = await _ticketBusinessLogic.UpdateTicketAsync(id, ticketAdd);
+
+            return Ok(ticketId);
+        }
     }
 }

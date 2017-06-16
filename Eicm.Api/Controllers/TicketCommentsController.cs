@@ -9,12 +9,12 @@ namespace Eicm.Api.Controllers
 {
     public class TicketCommentsController : BaseApiController
     {
-        private readonly ITicketCommentsBusinessLogic _ticketNoteBusinessLogic;
+        private readonly ITicketCommentsBusinessLogic _ticketCommentsBusinessLogic;
         private readonly Logger _logger = LogManager.GetCurrentClassLogger();
 
-        public TicketCommentsController(ITicketCommentsBusinessLogic ticketNoteBusinessLogic)
+        public TicketCommentsController(ITicketCommentsBusinessLogic ticketCommentsBusinessLogic)
         {
-            _ticketNoteBusinessLogic = ticketNoteBusinessLogic;
+            _ticketCommentsBusinessLogic = ticketCommentsBusinessLogic;
         }
 
         [HttpGet]
@@ -25,7 +25,7 @@ namespace Eicm.Api.Controllers
             try
             {
 
-                var ticketComment = await _ticketNoteBusinessLogic.GetTicketNoteByIdAsync(id);
+                var ticketComment = await _ticketCommentsBusinessLogic.GetTicketNoteByIdAsync(id);
 
                 if (!ModelState.IsValid)
                 {
@@ -53,7 +53,7 @@ namespace Eicm.Api.Controllers
             try
             {
 
-                var ticketComments = await _ticketNoteBusinessLogic.GetTicketNotesAsync();
+                var ticketComments = await _ticketCommentsBusinessLogic.GetTicketNotesAsync();
 
 
                 if (!ModelState.IsValid)
@@ -88,7 +88,7 @@ namespace Eicm.Api.Controllers
             int userId = 1; //TODO change to get userId
             _logger.Info("Adding ticketNote");
 
-            var ticketNoteId = await _ticketNoteBusinessLogic.AddTicketCommentAsync(ticketComment, userId);
+            var ticketNoteId = await _ticketCommentsBusinessLogic.AddTicketCommentAsync(ticketComment, userId);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
