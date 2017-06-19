@@ -106,7 +106,7 @@ namespace Eicm.Repository
             {
                 var ticket = await _coreDbContext.Tickets.SingleAsync(t => t.Id == id);
                 ticket.CategoryId = category;
-                ticket.CategoryId = cause;
+                ticket.CauseId = cause;
                 ticket.IsConfidential = isConfidential;
                 ticket.OriginId = origin;
                 //ticket.OwnerId = ownerId;
@@ -116,7 +116,9 @@ namespace Eicm.Repository
                 ticket.SubCategoryId = subcategory;
                 ticket.Summary = summary;
                 ticket.IsConfidential = isConfidential;
-                _coreDbContext.Tickets.AddOrUpdate(ticket);
+                ticket.ModifedByUserId = 1; //TODO insert userId
+                ticket.ModifiedDateTime = DateTime.Now;
+                //_coreDbContext.Tickets.AddOrUpdate(ticket);
                 await _coreDbContext.SaveChangesAsync();
                 return new CommonResult<bool>(ResultCode.Success);
             }
