@@ -113,7 +113,7 @@ namespace Eicm.Api.Controllers
             int? causeId = null;
             if (!string.IsNullOrEmpty(ticket.Cause))
             {
-                causeId = AttributeMethods.GetByDisplayed<PriorityType>(ticket.Cause).GetHashCode();
+                causeId = AttributeMethods.GetByDisplayed<CauseType>(ticket.Cause).GetHashCode();
             }
 
             int? categoryId = null;
@@ -125,7 +125,7 @@ namespace Eicm.Api.Controllers
             int? subCategoryId = null;
             if (!string.IsNullOrEmpty(ticket.SubCategory))
             {
-                subCategoryId = AttributeMethods.GetByDisplayed<CategoryType>(ticket.SubCategory).GetHashCode();
+                subCategoryId = AttributeMethods.GetByDisplayed<SubCategoryType>(ticket.SubCategory).GetHashCode();
             }
 
             var ticketAdd = new TicketAddDTO

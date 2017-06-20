@@ -38,8 +38,8 @@ namespace Eicm.BusinessLogic.DataObjects
             Priority = ((PriorityType)ticket.PriorityId).GetEnumDisplayName();
             Origin = ((OriginType)ticket.OriginId).GetEnumDisplayName();
             if (ticket.CategoryId != null) Category = ((CategoryType)ticket.CategoryId).GetEnumDisplayName();
-            if (ticket.SubCategoryId != null) Category = ((SubCategoryType)ticket.SubCategoryId).GetEnumDisplayName();
-            if (ticket.CauseId != null) Category = ((CauseType)ticket.CauseId).GetEnumDisplayName();
+            if (ticket.SubCategoryId != null) SubCategory = ((SubCategoryType)ticket.SubCategoryId).GetEnumDisplayName();
+            if (ticket.CauseId != null) Cause = ((CauseType)ticket.CauseId).GetEnumDisplayName();
             CreatedDateTime = ticket.CreatedDateTime.ToShortDateString();
             Summary = ticket.Summary;
             IsDeleted = ticket.IsDeleted;
