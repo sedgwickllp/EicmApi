@@ -81,6 +81,14 @@
     <Compile Include="Migrations\201706121909340_updateTicketDetails.Designer.cs">
       <DependentUpon>201706121909340_updateTicketDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706201945260_ticket history.cs" />
+    <Compile Include="Migrations\201706201945260_ticket history.Designer.cs">
+      <DependentUpon>201706201945260_ticket history.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706211420028_activity related tables.cs" />
+    <Compile Include="Migrations\201706211420028_activity related tables.Designer.cs">
+      <DependentUpon>201706211420028_activity related tables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -103,6 +111,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706121909340_updateTicketDetails.resx">
       <DependentUpon>201706121909340_updateTicketDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706201945260_ticket history.resx">
+      <DependentUpon>201706201945260_ticket history.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706211420028_activity related tables.resx">
+      <DependentUpon>201706211420028_activity related tables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

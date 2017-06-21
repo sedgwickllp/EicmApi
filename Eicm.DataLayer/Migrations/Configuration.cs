@@ -39,6 +39,35 @@ namespace Eicm.DataLayer.Migrations
             SeedOriginCodes(context);
             SeedCauseCodes(context);
             SeedStatusCodes(context);
+            SeedActivityCodes(context);
+            SeedTicketPropertyCodes(context);
+        }
+
+        private static void SeedActivityCodes(CoreDbContext context)
+        {
+            var activityTypeCodes = (ActivityType[])Enum.GetValues(typeof(ActivityType));
+            context.Activities.AddOrUpdate(
+                a => a.Id,
+                activityTypeCodes.Select(actCode => new Activity
+                {
+                    Id = actCode.GetHashCode(),
+                    Name = actCode.GetType().GetTypeInfo().GetDeclaredField(actCode.ToString()).GetCustomAttribute<DisplayNameAttribute>().Value,
+                    Active = actCode.GetType().GetTypeInfo().GetDeclaredField(actCode.ToString()).GetCustomAttribute<ActiveAttribute>().Value
+                }).ToArray());
+        }
+
+
+        private static void SeedTicketPropertyCodes(CoreDbContext context)
+        {
+            var propertyTypeCodes = (TicketPropertyType[]) Enum.GetValues(typeof(TicketPropertyType));
+            context.TicketProperties.AddOrUpdate(
+                tp => tp.Id,
+                propertyTypeCodes.Select(tpCode => new TicketProperty
+                {
+                    Id = tpCode.GetHashCode(),
+                    Name = tpCode.GetType().GetTypeInfo().GetDeclaredField(tpCode.ToString()).GetCustomAttribute<DisplayNameAttribute>().Value,
+                    Active = tpCode.GetType().GetTypeInfo().GetDeclaredField(tpCode.ToString()).GetCustomAttribute<ActiveAttribute>().Value
+                }).ToArray());
         }
 
         private static void SeedCategoryCodes(CoreDbContext context)

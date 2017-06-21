@@ -88,6 +88,27 @@ namespace Eicm.Repository
                 };
 
                 _coreDbContext.Tickets.Add(ticket);
+
+                var history = new TicketHistory
+                {
+                    CreatedByUserId = userId,
+                    CreatedDateTime = DateTime.Now,
+                    TicketId = ticket.Id,
+                    Summary = summary,
+                    RequesterId = requesterId,
+                    OwnerId = ownerId,
+                    CauseId = causeId,
+                    StatusId = statusId,
+                    PriorityId = priorityId,
+                    OriginId = originId,
+                    CategoryId = categoryId,
+                    SubCategoryId = subcategoryId,
+                    IsConfidential = isConfidential,
+                    IsVip = isVip,
+                    IsDeleted = false
+                };
+
+                _coreDbContext.TicketHistories.Add(history);
                 await _coreDbContext.SaveChangesAsync();
                 return new CommonResult<int>(ticket.Id, ResultCode.Success);
             }
@@ -119,6 +140,28 @@ namespace Eicm.Repository
                 ticket.ModifedByUserId = 1; //TODO insert userId
                 ticket.ModifiedDateTime = DateTime.Now;
                 //_coreDbContext.Tickets.AddOrUpdate(ticket);
+
+                var history = new TicketHistory
+                {
+                    CreatedByUserId = 1,
+                    CreatedDateTime = DateTime.Now,
+                    TicketId = ticket.Id,
+                    Summary = summary,
+                    RequesterId = requesterId,
+                    OwnerId = ownerId,
+                    CauseId = cause,
+                    StatusId = statusId ?? ticket.StatusId,
+                    PriorityId = priority ?? ticket.PriorityId,
+                    OriginId = origin,
+                    CategoryId = category ?? ticket.CategoryId,
+                    SubCategoryId = subcategory ?? ticket.SubCategoryId,
+                    IsConfidential = isConfidential,
+                    IsVip = ticket.IsVip,
+                    IsDeleted = false
+                };
+
+                _coreDbContext.TicketHistories.Add(history);
+
                 await _coreDbContext.SaveChangesAsync();
                 return new CommonResult<bool>(ResultCode.Success);
             }

@@ -16,3 +16,5 @@ C:\Projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.Migrations.updateTic
 C:\Projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.csproj.GenerateResource.Cache
 C:\Projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.dll
 C:\Projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.pdb
+C:\Projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.Migrations.tickethistory.resources
+C:\Projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.Migrations.activityrelatedtables.resources
