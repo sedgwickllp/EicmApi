@@ -68,6 +68,12 @@
     <Compile Include="Entities\TypeCodes\Status.cs" />
     <Compile Include="Entities\TypeCodes\SubCategory.cs" />
     <Compile Include="Entities\TypeCodes\TicketProperty.cs" />
+    <Compile Include="Entities\Users\Group.cs" />
+    <Compile Include="Entities\Users\Roles.cs" />
+    <Compile Include="Entities\Users\User.cs" />
+    <Compile Include="Entities\Users\UserAsset.cs" />
+    <Compile Include="Entities\Users\UserGroup.cs" />
+    <Compile Include="Entities\Users\UserProfile.cs" />
     <Compile Include="ICoreDbContext.cs" />
     <Compile Include="Migrations\201706072058443_reset.cs" />
     <Compile Include="Migrations\201706072058443_reset.Designer.cs">
@@ -89,11 +95,20 @@
     <Compile Include="Migrations\201706211420028_activity related tables.Designer.cs">
       <DependentUpon>201706211420028_activity related tables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706221744215_user related tables.cs" />
+    <Compile Include="Migrations\201706221744215_user related tables.Designer.cs">
+      <DependentUpon>201706221744215_user related tables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706221830097_auto generate guid for user table.cs" />
+    <Compile Include="Migrations\201706221830097_auto generate guid for user table.Designer.cs">
+      <DependentUpon>201706221830097_auto generate guid for user table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Compile Include="Entities\Users\UserLocation.cs" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -118,6 +133,13 @@
     <EmbeddedResource Include="Migrations\201706211420028_activity related tables.resx">
       <DependentUpon>201706211420028_activity related tables.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706221744215_user related tables.resx">
+      <DependentUpon>201706221744215_user related tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706221830097_auto generate guid for user table.resx">
+      <DependentUpon>201706221830097_auto generate guid for user table.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

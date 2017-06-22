@@ -3,6 +3,7 @@ using System.Data.Entity;
 using System.Threading.Tasks;
 using Eicm.DataLayer.Entities.Tickets;
 using Eicm.DataLayer.Entities.TypeCodes;
+using Eicm.DataLayer.Entities.Users;
 
 namespace Eicm.DataLayer
 {
@@ -22,6 +23,13 @@ namespace Eicm.DataLayer
         DbSet<Cause> Causes { get; set; }
         DbSet<SubCategory> SubCategories { get; set; }
 
+        DbSet<User> Users { get; set; }
+        DbSet<Group> Groups { get; set; }
+        DbSet<Roles> Roles { get; set; }
+        DbSet<UserAsset> UserAssets { get; set; }
+        DbSet<UserLocation> UserLocations { get; set; }
+        DbSet<UserGroup> UserGroups { get; set; }
+        DbSet<UserProfile> UserProfiles { get; set; }
         Task<int> SaveChangesAsync();
     }
 }
