@@ -1,0 +1,4 @@
+C:\projects\EicmApi\Eicm.Core\bin\Release\Eicm.Core.dll
+C:\projects\EicmApi\Eicm.Core\bin\Release\Eicm.Core.pdb
+C:\projects\EicmApi\Eicm.Core\obj\Release\Eicm.Core.dll
+C:\projects\EicmApi\Eicm.Core\obj\Release\Eicm.Core.pdb

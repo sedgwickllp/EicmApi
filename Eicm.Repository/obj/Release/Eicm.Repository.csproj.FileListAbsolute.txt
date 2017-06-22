@@ -1,0 +1,17 @@
+C:\projects\EicmApi\Eicm.Repository\bin\Release\Eicm.Repository.dll.config
+C:\projects\EicmApi\Eicm.Repository\bin\Release\Eicm.Repository.dll
+C:\projects\EicmApi\Eicm.Repository\bin\Release\Eicm.Repository.pdb
+C:\projects\EicmApi\Eicm.Repository\bin\Release\Eicm.Core.dll
+C:\projects\EicmApi\Eicm.Repository\bin\Release\Eicm.DataLayer.dll
+C:\projects\EicmApi\Eicm.Repository\bin\Release\EntityFramework.dll
+C:\projects\EicmApi\Eicm.Repository\bin\Release\EntityFramework.SqlServer.dll
+C:\projects\EicmApi\Eicm.Repository\bin\Release\NLog.dll
+C:\projects\EicmApi\Eicm.Repository\bin\Release\Eicm.Core.pdb
+C:\projects\EicmApi\Eicm.Repository\bin\Release\Eicm.DataLayer.pdb
+C:\projects\EicmApi\Eicm.Repository\bin\Release\Eicm.DataLayer.dll.config
+C:\projects\EicmApi\Eicm.Repository\bin\Release\EntityFramework.xml
+C:\projects\EicmApi\Eicm.Repository\bin\Release\EntityFramework.SqlServer.xml
+C:\projects\EicmApi\Eicm.Repository\bin\Release\NLog.xml
+C:\projects\EicmApi\Eicm.Repository\obj\Release\Eicm.Repository.csprojResolveAssemblyReference.cache
+C:\projects\EicmApi\Eicm.Repository\obj\Release\Eicm.Repository.dll
+C:\projects\EicmApi\Eicm.Repository\obj\Release\Eicm.Repository.pdb

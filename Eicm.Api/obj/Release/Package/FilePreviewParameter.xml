@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="EnterpriseApi" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\projects\\EicmApi\\Eicm\.Api\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\projects\\EicmApi\\Eicm\.Api\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="CoreDbContext-Web.config Connection String" description="" value="Server=kcdevsp01;Database=EnterpriseAppsDb;user=john;password=nasa;Trusted_Connection=True;MultipleActiveResultSets=true" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\projects\\EicmApi\\Eicm\.Api\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CoreDbContext']/@connectionString" />
+  </parameter>
+</parameters>
