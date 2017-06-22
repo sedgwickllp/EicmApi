@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using Eicm.DataLayer.Entities.Tickets;
 using Eicm.DataLayer.Entities.TypeCodes;
+using Eicm.DataLayer.Entities.Users;
 
 namespace Eicm.DataLayer
 {
@@ -24,6 +25,13 @@ namespace Eicm.DataLayer
         public virtual DbSet<Cause> Causes { get; set; }
         public virtual DbSet<SubCategory> SubCategories { get; set; }
 
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Group> Groups { get; set; }
+        public virtual DbSet<Roles> Roles { get; set; }
+        public virtual DbSet<UserAsset> UserAssets { get; set; }
+        public virtual DbSet<UserLocation> UserLocations { get; set; }
+        public virtual DbSet<UserGroup> UserGroups { get; set; }
+        public virtual DbSet<UserProfile> UserProfiles { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             //modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
