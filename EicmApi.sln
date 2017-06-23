@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eicm.Core", "Eicm.Core\Eicm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eicm.BusinessLogic", "Eicm.BusinessLayer\Eicm.BusinessLogic.csproj", "{0B994C21-7529-4153-959C-73DC2F99C3C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eicm.Repository.Tests", "Eicm.Repository.Tests\Eicm.Repository.Tests.csproj", "{7586CC7A-F218-4406-AEB7-D66ADA8D687E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{0B994C21-7529-4153-959C-73DC2F99C3C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B994C21-7529-4153-959C-73DC2F99C3C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B994C21-7529-4153-959C-73DC2F99C3C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7586CC7A-F218-4406-AEB7-D66ADA8D687E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7586CC7A-F218-4406-AEB7-D66ADA8D687E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7586CC7A-F218-4406-AEB7-D66ADA8D687E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7586CC7A-F218-4406-AEB7-D66ADA8D687E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

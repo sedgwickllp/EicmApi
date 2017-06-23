@@ -103,6 +103,14 @@
     <Compile Include="Migrations\201706221830097_auto generate guid for user table.Designer.cs">
       <DependentUpon>201706221830097_auto generate guid for user table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706231540492_remove adId from user table.cs" />
+    <Compile Include="Migrations\201706231540492_remove adId from user table.Designer.cs">
+      <DependentUpon>201706231540492_remove adId from user table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706231622555_remove auto-generate from UserId column.cs" />
+    <Compile Include="Migrations\201706231622555_remove auto-generate from UserId column.Designer.cs">
+      <DependentUpon>201706231622555_remove auto-generate from UserId column.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -138,6 +146,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706221830097_auto generate guid for user table.resx">
       <DependentUpon>201706221830097_auto generate guid for user table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706231540492_remove adId from user table.resx">
+      <DependentUpon>201706231540492_remove adId from user table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706231622555_remove auto-generate from UserId column.resx">
+      <DependentUpon>201706231622555_remove auto-generate from UserId column.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

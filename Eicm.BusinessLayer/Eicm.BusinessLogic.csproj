@@ -35,6 +35,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,13 +51,16 @@
     <Compile Include="DataObjects\TicketNoteModel.cs" />
     <Compile Include="DataObjects\TypeCodes.cs" />
     <Compile Include="DataObjects\TypeCodeValue.cs" />
+    <Compile Include="DataObjects\UserModel.cs" />
     <Compile Include="ITicketBusinessLogic.cs" />
     <Compile Include="ITicketCommentsBusinessLogic.cs" />
+    <Compile Include="IUserBusinessLogic.cs" />
     <Compile Include="ITypeCodesBusinessLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TicketBusinessLogic.cs" />
     <Compile Include="TicketCommentsBusinessLogic.cs" />
     <Compile Include="TypeCodesBusinessLogic.cs" />
+    <Compile Include="UserBusinessLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Eicm.Core\Eicm.Core.csproj">

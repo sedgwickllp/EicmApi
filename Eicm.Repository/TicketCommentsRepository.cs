@@ -67,7 +67,7 @@ namespace Eicm.Repository
                     ModifiedDateTime = DateTime.Now
                 };
 
-        _coreDbContext.TicketComments.Add(ticketComment);
+                _coreDbContext.TicketComments.Add(ticketComment);
                 await _coreDbContext.SaveChangesAsync();
                 return new CommonResult<int>(ticketComment.Id, ResultCode.Success);
             }
