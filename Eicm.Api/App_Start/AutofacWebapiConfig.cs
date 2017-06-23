@@ -42,7 +42,9 @@ namespace Eicm.Api
 
             builder.RegisterType<TicketCommentsBusinessLogic>()
                 .As<ITicketCommentsBusinessLogic>();
-                //.InstancePerRequest();
+            //.InstancePerRequest();
+            builder.RegisterType<UserBusinessLogic>()
+                .As<IUserBusinessLogic>();
 
             builder.RegisterType<TicketRepository>()
                 .As<ITicketRepository>();
@@ -52,6 +54,8 @@ namespace Eicm.Api
                 .As<ITicketCommentsRepository>();
             //.InstancePerRequest();
 
+            builder.RegisterType<UserRepository>()
+                .As<IUserRepository>();
             //Set the dependency resolver to be Autofac.  
             Container = builder.Build();
 

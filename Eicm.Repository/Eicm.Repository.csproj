@@ -51,10 +51,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ITicketCommentsRepository.cs" />
+    <Compile Include="IUserRepository.cs" />
     <Compile Include="ITicketRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TicketCommentsRepository.cs" />
     <Compile Include="TicketRepository.cs" />
+    <Compile Include="UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

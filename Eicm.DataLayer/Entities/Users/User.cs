@@ -11,10 +11,7 @@ namespace Eicm.DataLayer.Entities.Users
     [Table("Users", Schema = "Users")]
     public class User : EntityBase
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Key]
-        public Guid UserId { get; set; }
-        public int AdId { get; set; }
+        public Guid? UserId { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
         public string FirstName { get; set; }
