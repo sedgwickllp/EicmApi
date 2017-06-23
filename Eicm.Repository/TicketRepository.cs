@@ -8,6 +8,8 @@ using NLog;
 using Eicm.DataLayer;
 using Eicm.DataLayer.Entities.Tickets;
 using System.Linq;
+using Eicm.Core;
+using Eicm.Core.Enums;
 
 namespace Eicm.Repository
 {
@@ -125,7 +127,11 @@ namespace Eicm.Repository
         {
             try
             {
+                var userId = 1;
                 var ticket = await _coreDbContext.Tickets.SingleAsync(t => t.Id == id);
+
+                //CreateTicketActivityChanges(ticket, category, cause, isConfidential, origin, priority, statusId, subcategory, userId);
+
                 ticket.CategoryId = category;
                 ticket.CauseId = cause;
                 ticket.IsConfidential = isConfidential;
@@ -139,7 +145,7 @@ namespace Eicm.Repository
                 ticket.IsConfidential = isConfidential;
                 ticket.ModifedByUserId = 1; //TODO insert userId
                 ticket.ModifiedDateTime = DateTime.Now;
-                //_coreDbContext.Tickets.AddOrUpdate(ticket);
+             
 
                 var history = new TicketHistory
                 {
@@ -170,6 +176,26 @@ namespace Eicm.Repository
                 _log.Error(ex.GetBaseException());
                 return new CommonResult<bool>(ResultCode.Failure, ResultCode.Failure, ex.Message);
             }
+        }
+
+        private void CreateTicketActivityChanges(Ticket ticket, int? category, int? cause, bool isConfidential, int origin, int? priority, int? statusId, int? subcategory, int userId)
+        {
+            var actList = new List<TicketActivity>();
+            if (ticket.IsConfidential != isConfidential)
+            {
+                var act = new TicketActivity
+                {
+                    CreatedByUserId = userId,
+                    CreatedDateTime = DateTime.Now,
+                    ActivityId = ActivityType.Updated.GetHashCode(),//AttributeMethods.GetByDisplayed<ActivityType>(nameof(ticket.IsConfidential)).GetHashCode(),
+                    TicketId = ticket.Id,
+                    TicketPropertyId = AttributeMethods.GetByDisplayed<TicketPropertyType>(nameof(ticket.IsConfidential)).GetHashCode(),
+                    FromValue = ticket.IsConfidential.ToString(),
+                    ToValue = isConfidential.ToString()
+                };
+                actList.Add(act);
+            }
+            _coreDbContext.TicketActivities.AddRange(actList);
         }
         public async Task<ICommonResult<bool>> DeleteTicketAsync(int id)
         {
