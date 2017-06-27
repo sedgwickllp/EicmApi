@@ -9,5 +9,7 @@ namespace Eicm.BusinessLogic
     {
         Task<ICommonResult<UserModel>> GetUserByUserNameAsync(string userName);
         Task<ICommonResult<int>> AddUserAsync(string userName);
+        Task<ICommonResult<List<UserModel>>> GetUsersAsync();
+        Task<ICommonResult<List<UserProfileModel>>> GetUserProfilesAsync();
     }
 }
