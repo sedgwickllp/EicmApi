@@ -45,7 +45,34 @@ namespace Eicm.Api.Controllers
                 return BadRequest(ex.Message);
             }
         }
+/*
+        [HttpGet]
+        [Route("api/tickets/user/{userId}")]
+        public async Task<IHttpActionResult> GetByUser(int userId)
+        {
+            _logger.Info("Retrieving ticket for user with id = " + userId);
+            try
+            {
+                var ticket = await _ticketBusinessLogic.GetTicketsByUserIdAsync(userId);
 
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                if (ticket == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(ticket.Payload);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        */
         [HttpGet]
         [Route("api/tickets")]
         public async Task<IHttpActionResult> Get()

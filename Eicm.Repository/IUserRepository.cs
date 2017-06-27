@@ -10,12 +10,12 @@ namespace Eicm.Repository
     {
         Task<ICommonResult<User>> GetUserByUserNameAsync(string userName);
 
-        Task<ICommonResult<int>> AddUserAsync(
-            Guid? userId, 
-            string userName, 
-            string email, 
-            string firstName,
-            string lastName);
+        Task<ICommonResult<UserProfile>> GetUserProfileByIdAsync(int userId);
+        Task<ICommonResult<int>> AddUserAsync(Guid? userId, string userName, string email, string firstName, string lastName,
+            string location, int phoneExt, int cellPhone);
+
+        Task<ICommonResult<List<User>>> GetActiveUsersAsync();
+        Task<ICommonResult<List<UserProfile>>> GetActiveUserProfilesAsync();
         void Dispose();
     }
 }

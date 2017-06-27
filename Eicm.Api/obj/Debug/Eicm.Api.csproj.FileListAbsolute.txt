@@ -1,3 +1,4 @@
+C:\projects\EicmApi\Eicm.Api\obj\Debug\Eicm.Api.csprojResolveAssemblyReference.cache
 C:\projects\EicmApi\Eicm.Api\bin\roslyn\csc.exe
 C:\projects\EicmApi\Eicm.Api\bin\roslyn\csc.exe.config
 C:\projects\EicmApi\Eicm.Api\bin\roslyn\csc.rsp
@@ -111,6 +112,5 @@ C:\projects\EicmApi\Eicm.Api\bin\System.Net.Http.Formatting.xml
 C:\projects\EicmApi\Eicm.Api\bin\System.Web.Http.xml
 C:\projects\EicmApi\Eicm.Api\bin\System.Web.Http.WebHost.xml
 C:\projects\EicmApi\Eicm.Api\bin\EntityFramework.xml
-C:\projects\EicmApi\Eicm.Api\obj\Debug\Eicm.Api.csprojResolveAssemblyReference.cache
 C:\projects\EicmApi\Eicm.Api\obj\Debug\Eicm.Api.dll
 C:\projects\EicmApi\Eicm.Api\obj\Debug\Eicm.Api.pdb

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.DirectoryServices.AccountManagement;
 using System.DirectoryServices;
+using System.DirectoryServices.AccountManagement;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,26 +38,56 @@ namespace Eicm.BusinessLogic
             return new CommonResult<UserModel>(new UserModel(dbuser.Payload), dbuser.ResultCode);
         }
 
+        public async Task<ICommonResult<List<UserModel>>> GetUsersAsync()
+        {
+            _logger.Info("Retrieving all users");
+            var dbuserList = await _userRepository.GetActiveUsersAsync();
+
+            if (dbuserList.ResultCode)
+            {
+                var userList = dbuserList.Payload.Select(user => new UserModel(user)).ToList();
+                return new CommonResult<List<UserModel>>(userList, dbuserList.ResultCode);
+            }
+
+            return new CommonResult<List<UserModel>>(null, dbuserList.ResultCode, dbuserList.Message);
+        }
+
+        public async Task<ICommonResult<List<UserProfileModel>>> GetUserProfilesAsync()
+        {
+            _logger.Info("Retrieving all users");
+            var dbuserList = await _userRepository.GetActiveUserProfilesAsync();
+
+            if (dbuserList.ResultCode)
+            {
+                var userList = dbuserList.Payload.Select(user => new UserProfileModel(user)).ToList();
+                return new CommonResult<List<UserProfileModel>>(userList, dbuserList.ResultCode);
+            }
+
+            return new CommonResult<List<UserProfileModel>>(null, dbuserList.ResultCode, dbuserList.Message);
+        }
         public async Task<ICommonResult<int>> AddUserAsync(string userName)
         {
             var existingUser = await _userRepository.GetUserByUserNameAsync(userName);
             if (existingUser.Payload == null)
             {
-                PrincipalContext ctx = new PrincipalContext(ContextType.Domain);
-                UserPrincipal adUser = UserPrincipal.FindByIdentity(ctx, userName);
-                // directoryEntry = adUser.GetUnderlyingObject();
-                if (adUser.Guid != null)
-                {
-                    var userId = await _userRepository.AddUserAsync(
-                        adUser.Guid,
-                        adUser.SamAccountName,
-                        adUser.EmailAddress, 
-                        adUser.GivenName, 
-                        adUser.Surname
-                        
-                    );
-                    return new CommonResult<int>(userId.Payload, userId.ResultCode); 
-                } 
+                var ctx = new PrincipalContext(ContextType.Domain);
+                var adUser = UserPrincipal.FindByIdentity(ctx, userName);
+                if (adUser == null) return new CommonResult<int>(-1, ResultCode.Failure, "User not found in AD");
+                var directoryEntry = adUser.GetUnderlyingObject() as DirectoryEntry;
+                if (adUser.Guid == null) return new CommonResult<int>(-1, ResultCode.Failure, "User not found in AD");
+                if (directoryEntry == null) return new CommonResult<int>(-1, ResultCode.Failure, "User already exists");
+                var userId = await _userRepository.AddUserAsync(
+                    adUser.Guid,
+                    adUser.SamAccountName,
+                    adUser.EmailAddress,
+                    adUser.GivenName,
+                    adUser.Surname,
+                    directoryEntry.Properties["l"].Value.ToString(),
+                    Convert.ToInt32(directoryEntry.Properties["ipPhone"].Value),
+                    Convert.ToInt32(directoryEntry.Properties["MobilePhone"].Value)
+
+                );
+                return new CommonResult<int>(userId.Payload, userId.ResultCode);
             }
             
             

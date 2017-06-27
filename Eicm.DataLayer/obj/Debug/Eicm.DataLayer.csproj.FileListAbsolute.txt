@@ -16,7 +16,10 @@ C:\projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.Migrations.updateTic
 C:\projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.Migrations.tickethistory.resources
 C:\projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.Migrations.activityrelatedtables.resources
 C:\projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.Migrations.userrelatedtables.resources
+C:\projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.Migrations.autogenerateguidforusertable.resources
+C:\projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.Migrations.removeadIdfromusertable.resources
+C:\projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.Migrations.removeautogeneratefromUserIdcolumn.resources
 C:\projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.csproj.GenerateResource.Cache
 C:\projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.dll
 C:\projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.pdb
-C:\projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.Migrations.autogenerateguidforusertable.resources
+C:\projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.Migrations.updateusertable.resources
