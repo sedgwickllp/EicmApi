@@ -2,6 +2,7 @@
 using Eicm.Core;
 using Eicm.Core.Enums;
 using Eicm.DataLayer.Entities.Tickets;
+using Eicm.DataLayer.Entities.Users;
 
 namespace Eicm.BusinessLogic.DataObjects
 {
@@ -73,6 +74,14 @@ namespace Eicm.BusinessLogic.DataObjects
             Email = email;
             Phone = phone;
             Location = location;
+        }
+        public TicketRequesterModel(UserProfile user)
+        {
+            FirstName = user.User.FirstName;
+            LastName = user.User.LastName;
+            Email = user.User.Email;
+            Phone = user.BusinessExtension.ToString();
+            Location = user.UserLocation.Name;
         }
         public string FirstName { get; }
         public string LastName { get; }

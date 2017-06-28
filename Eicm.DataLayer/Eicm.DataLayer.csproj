@@ -111,6 +111,10 @@
     <Compile Include="Migrations\201706231622555_remove auto-generate from UserId column.Designer.cs">
       <DependentUpon>201706231622555_remove auto-generate from UserId column.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706271434058_update user table.cs" />
+    <Compile Include="Migrations\201706271434058_update user table.Designer.cs">
+      <DependentUpon>201706271434058_update user table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -152,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706231622555_remove auto-generate from UserId column.resx">
       <DependentUpon>201706231622555_remove auto-generate from UserId column.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706271434058_update user table.resx">
+      <DependentUpon>201706271434058_update user table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

@@ -42,8 +42,44 @@ namespace Eicm.Api.Controllers
         {
             _logger.Info("retrieving all users");
             //_seedEnumsRepository.SeedUpdateEnums();
-            
-            return Ok();
+
+            try
+            {
+                var users = await _userBusinessLogic.GetUsersAsync();
+                if (users.Payload == null)
+                {
+                    return NotFound();
+                }
+                return Ok(users);
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Problem occured while retrieving user list");
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("api/userProfile/")]
+        public async Task<IHttpActionResult> GetProfile()
+        {
+            _logger.Info("retrieving all user profiles");
+            //_seedEnumsRepository.SeedUpdateEnums();
+
+            try
+            {
+                var users = await _userBusinessLogic.GetUserProfilesAsync();
+                if (users.Payload == null)
+                {
+                    return NotFound();
+                }
+                return Ok(users);
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Problem occured while retrieving user profile list");
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost]

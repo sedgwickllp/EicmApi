@@ -9,16 +9,15 @@ namespace Eicm.BusinessLogic.DataObjects
     public class UserModel
     {
         public int Id { get; set; }
-        public Guid? UserId { get; set; }
+        public Guid? AdId { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
         public string FirstName { get; set; }
-        public string LastName { get; set; }
-
+        public string LastName { get; set; }       
         public UserModel(User user)
         {
             Id = user.Id;
-            UserId = user.UserId;
+            AdId = user.AdId;
             UserName = user.UserName;
             Email = user.Email;
             FirstName = user.FirstName;

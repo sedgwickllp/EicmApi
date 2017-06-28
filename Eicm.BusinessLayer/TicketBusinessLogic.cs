@@ -14,11 +14,13 @@ namespace Eicm.BusinessLogic
     public class TicketBusinessLogic : ITicketBusinessLogic
     {
         private readonly ITicketRepository _ticketRepository;
+        private readonly IUserRepository _userRepository;
         private readonly Logger _logger = LogManager.GetCurrentClassLogger();
 
-        public TicketBusinessLogic(ITicketRepository ticketRepository)
+        public TicketBusinessLogic(ITicketRepository ticketRepository, IUserRepository userRepository)
         {
             _ticketRepository = ticketRepository;
+            _userRepository = userRepository;
         }
         public async Task<ICommonResult<TicketModel>> GetTicketByIdAsync(int id)
         {
@@ -50,7 +52,8 @@ namespace Eicm.BusinessLogic
             //ticket.TicketRequester = new TicketRequesterModel(dbticket.Payload.RequestedBy, "test", "email", "1111111111", "KC");
             ticket.TicketDetail = new TicketDetailModel(dbticket.Payload);
             //ticket.TicketDetail = new TicketDetailModel(id, "Software", "Outlook", "Password Reset", "04/21/2017", "Open", "High", "Email", "descripton from service");
-            ticket.TicketRequester = new TicketRequesterModel("Han", "Solo", "han.solo@milleniumfalcon.com", "111-111-1111", "Kansas City, USA");
+            var requester = await _userRepository.GetUserProfileByIdAsync(dbticket.Payload.RequesterId);
+            ticket.TicketRequester = new TicketRequesterModel(requester.Payload);
             ticket.TicketActivity = new List<TicketActivityModel>();
             ticket.TicketActivity.Add(new TicketActivityModel("Princess Leia", "April 30 3:30pm", "created ticket", false, true, false));
             //ticket.TicketActivity.AddRange(dbticket.Payload.Comments?.Select(x => new TicketActivityModel(dbticket.Payload.Comments.IndexOf(x) % 2 == 0 ? "Luke Skywalker" : "Princess Leia", x.CreatedDateTime.ToString("MMMM dd h:mm tt"), "comment added", true, false, false)));
