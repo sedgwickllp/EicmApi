@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Eicm.BusinessLogic.DataObjects;
@@ -54,10 +55,14 @@ namespace Eicm.BusinessLogic
             //ticket.TicketDetail = new TicketDetailModel(id, "Software", "Outlook", "Password Reset", "04/21/2017", "Open", "High", "Email", "descripton from service");
             var requester = await _userRepository.GetUserProfileByIdAsync(dbticket.Payload.RequesterId);
             ticket.TicketRequester = new TicketRequesterModel(requester.Payload);
-            ticket.TicketActivity = new List<TicketActivityModel>();
-            ticket.TicketActivity.Add(new TicketActivityModel("Princess Leia", "April 30 3:30pm", "created ticket", false, true, false));
-            //ticket.TicketActivity.AddRange(dbticket.Payload.Comments?.Select(x => new TicketActivityModel(dbticket.Payload.Comments.IndexOf(x) % 2 == 0 ? "Luke Skywalker" : "Princess Leia", x.CreatedDateTime.ToString("MMMM dd h:mm tt"), "comment added", true, false, false)));
-            ticket.TicketActivity.Add(new TicketActivityModel("Princess Leia", "May 3 10:09pm", "modified ticket", false, false, true));
+            ticket.TicketActivity = dbticket.Payload.TicketActivityList.Select(x => new TicketActivityModel(
+                x.CreatedByUser.FirstName,
+                x.CreatedDateTime.ToString("MM/dd/yyyy"),
+                Enum.GetName(typeof(ActivityType), x.ActivityId),
+                x.ActivityId == ActivityType.CommentAdded.GetHashCode(),
+                x.ActivityId == ActivityType.Created.GetHashCode(),
+                x.ActivityId == ActivityType.Updated.GetHashCode())
+                ).ToList(); 
             ticket.TicketComments = dbticket.Payload.Comments?.Select(x => new TicketCommentsModel("user " + x.CreatedByUserId.ToString(), x.CreatedDateTime.ToString("MM/dd/yyyy") , x.Comment, x.IsVisibleToAll, x.TicketId)).ToList();
             //ticket.TicketComments = new List<TicketCommentsModel>();
             //ticket.TicketComments.Add(new TicketCommentsModel("Princess Leia", "04/20/2017", "May the force be with you"));

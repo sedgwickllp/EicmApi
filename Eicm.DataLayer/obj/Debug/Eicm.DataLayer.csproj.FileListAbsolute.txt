@@ -23,3 +23,4 @@ C:\projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.csproj.GenerateResou
 C:\projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.dll
 C:\projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.pdb
 C:\projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.Migrations.updateusertable.resources
+C:\Projects\EicmApi\Eicm.DataLayer\obj\Debug\Eicm.DataLayer.Migrations.addVirtualToActivity.resources

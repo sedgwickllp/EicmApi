@@ -6,27 +6,27 @@ namespace Eicm.Core.Enums
     {
         [DisplayName("Category")]
         [Active(true)]
-        Category = 1,
+        CategoryId = 1,
 
         [DisplayName("Cause")]
         [Active(true)]
-        Cause = 2,
+        CauseId = 2,
 
         [DisplayName("Origin")]
         [Active(true)]
-        Origin = 3,
+        OriginId = 3,
 
         [DisplayName("Priority")]
         [Active(true)]
-        Priority = 4,
+        PriorityId = 4,
 
         [DisplayName("Status")]
         [Active(true)]
-        Status = 5,
+        StatusId = 5,
 
         [DisplayName("SubCategory")]
         [Active(true)]
-        SubCategory = 6,
+        SubCategoryId = 6,
 
         [DisplayName("Summary")]
         [Active(true)]
@@ -34,14 +34,18 @@ namespace Eicm.Core.Enums
 
         [DisplayName("Owner")]
         [Active(true)]
-        Owner = 8,
+        OwnerId = 8,
 
         [DisplayName("Requester")]
         [Active(true)]
-        Requester = 9,
+        RequesterId = 9,
 
         [DisplayName("IsDeleted")]
         [Active(true)]
-        IsDeleted = 10
+        IsDeleted = 10,
+
+        [DisplayName("IsConfidential")]
+        [Active(true)]
+        IsConfidential = 11
     }
 }

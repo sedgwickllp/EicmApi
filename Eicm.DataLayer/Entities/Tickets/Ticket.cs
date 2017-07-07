@@ -30,5 +30,6 @@ namespace Eicm.DataLayer.Entities.Tickets
         
         public virtual Priority Priority { get; set; }
         public virtual Origin Origin { get; set; }
+        public virtual List<TicketActivity> TicketActivityList { get; set; }
     }
 }

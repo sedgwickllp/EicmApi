@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Eicm.DataLayer.Entities.Users;
 
 namespace Eicm.DataLayer.Entities.Tickets
 {
@@ -18,5 +19,7 @@ namespace Eicm.DataLayer.Entities.Tickets
         public string FromValue { get; set; }
         public string ToValue { get; set; }
 
+        [ForeignKey("CreatedByUserId")]
+        public virtual User CreatedByUser { get; set; }
     }
 }

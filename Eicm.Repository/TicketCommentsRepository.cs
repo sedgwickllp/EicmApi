@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Threading.Tasks;
+using Eicm.Core.Enums;
 using Eicm.Core.Extensions;
 using Eicm.DataLayer;
 using Eicm.DataLayer.Entities.Tickets;
@@ -68,6 +69,16 @@ namespace Eicm.Repository
                 };
 
                 _coreDbContext.TicketComments.Add(ticketComment);
+
+                var act = new TicketActivity
+                {
+                    CreatedByUserId = userId,
+                    CreatedDateTime = DateTime.Now,
+                    ActivityId = ActivityType.CommentAdded.GetHashCode(),
+                    TicketId = ticketId
+                };
+
+                _coreDbContext.TicketActivities.Add(act);
                 await _coreDbContext.SaveChangesAsync();
                 return new CommonResult<int>(ticketComment.Id, ResultCode.Success);
             }

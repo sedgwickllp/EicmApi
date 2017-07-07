@@ -99,14 +99,14 @@ namespace Eicm.BusinessLogic.DataObjects
             Activity = act;
             IsComment = isComment;
             IsCreated = isCreated;
-            IsAssigned = isAssigned;
+            IsUpdated = IsUpdated;
         }
         public string UserName { get; }
         public string CreatedDate { get; }
         public string Activity { get; }
         public bool IsComment { get; }
         public bool IsCreated { get; }
-        public bool IsAssigned { get; }
+        public bool IsUpdated { get; }
     }
 
     public class TicketCommentsModel

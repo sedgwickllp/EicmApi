@@ -25,7 +25,8 @@ namespace Eicm.Repository
         {
             try
             {
-                var foundTicket = await _coreDbContext.Tickets.Include(t => t.Comments).SingleAsync(t => t.Id == id);
+                var foundTicket = await _coreDbContext.Tickets
+                    .Include(t => t.Comments).SingleAsync(t => t.Id == id);
                 return new CommonResult<Ticket>(foundTicket, ResultCode.Success);
             }
             catch (Exception ex)
@@ -91,6 +92,16 @@ namespace Eicm.Repository
 
                 _coreDbContext.Tickets.Add(ticket);
 
+                var act = new TicketActivity
+                {
+                    CreatedByUserId = userId,
+                    CreatedDateTime = DateTime.Now,
+                    ActivityId = ActivityType.Created.GetHashCode(),
+                    TicketId = ticket.Id
+                };
+
+                _coreDbContext.TicketActivities.Add(act);
+
                 var history = new TicketHistory
                 {
                     CreatedByUserId = userId,
@@ -130,7 +141,7 @@ namespace Eicm.Repository
                 var userId = 1;
                 var ticket = await _coreDbContext.Tickets.SingleAsync(t => t.Id == id);
 
-                //CreateTicketActivityChanges(ticket, category, cause, isConfidential, origin, priority, statusId, subcategory, userId);
+                CreateTicketActivityChanges(ticket, category, cause, isConfidential, origin, priority, statusId, subcategory, summary, ownerId, requesterId, userId);
 
                 ticket.CategoryId = category;
                 ticket.CauseId = cause;
@@ -178,25 +189,81 @@ namespace Eicm.Repository
             }
         }
 
-        private void CreateTicketActivityChanges(Ticket ticket, int? category, int? cause, bool isConfidential, int origin, int? priority, int? statusId, int? subcategory, int userId)
+        private void CreateTicketActivityChanges(Ticket ticket, int? category, int? cause, bool isConfidential, int origin, int? priority, int? statusId, int? subcategory, string summary, int ownerId, int requesterId, int userId)
         {
             var actList = new List<TicketActivity>();
+            TicketActivity activity;
+
+            if (ticket.CategoryId != category)
+            {
+                activity = CreateTicketActivity(ticket.CategoryId, category, ticket.Id, userId);
+                actList.Add(activity);
+            }
+            if (ticket.CauseId != cause)
+            {
+                activity = CreateTicketActivity(ticket.CauseId, cause, ticket.Id, userId);
+                actList.Add(activity);
+            }
+            if (ticket.OriginId != origin)
+            {
+                activity = CreateTicketActivity(ticket.OriginId, origin, ticket.Id, userId);
+                actList.Add(activity);
+            }
+            if (ticket.PriorityId != priority)
+            {
+                activity = CreateTicketActivity(ticket.PriorityId, priority, ticket.Id, userId);
+                actList.Add(activity);
+            }
+            if (ticket.StatusId != statusId)
+            {
+                activity = CreateTicketActivity(ticket.StatusId, statusId, ticket.Id, userId);
+                actList.Add(activity);
+            }
+            if (ticket.SubCategoryId != subcategory)
+            {
+                activity = CreateTicketActivity(ticket.SubCategoryId, subcategory, ticket.Id, userId);
+                actList.Add(activity);
+            }
+            if (ticket.Summary != summary)
+            {
+                activity = CreateTicketActivity(ticket.Summary, summary, ticket.Id, userId);
+                actList.Add(activity);
+            }
+            if (ticket.OwnerId != ownerId)
+            {
+                activity = CreateTicketActivity(ticket.OwnerId, ownerId, ticket.Id, userId);
+                actList.Add(activity);
+            }
+            if (ticket.RequesterId != requesterId)
+            {
+                activity = CreateTicketActivity(ticket.RequesterId, requesterId, ticket.Id, userId);
+                actList.Add(activity);
+            }
             if (ticket.IsConfidential != isConfidential)
             {
-                var act = new TicketActivity
-                {
-                    CreatedByUserId = userId,
-                    CreatedDateTime = DateTime.Now,
-                    ActivityId = ActivityType.Updated.GetHashCode(),//AttributeMethods.GetByDisplayed<ActivityType>(nameof(ticket.IsConfidential)).GetHashCode(),
-                    TicketId = ticket.Id,
-                    TicketPropertyId = AttributeMethods.GetByDisplayed<TicketPropertyType>(nameof(ticket.IsConfidential)).GetHashCode(),
-                    FromValue = ticket.IsConfidential.ToString(),
-                    ToValue = isConfidential.ToString()
-                };
-                actList.Add(act);
+                activity = CreateTicketActivity(ticket.IsConfidential, isConfidential, ticket.Id, userId);
+                actList.Add(activity);
             }
+
             _coreDbContext.TicketActivities.AddRange(actList);
         }
+
+        private TicketActivity CreateTicketActivity<T>(T ticketProperty, T ticketChanges, int ticketId, int userId)
+        {
+            var act = new TicketActivity
+            {
+                CreatedByUserId = userId,
+                CreatedDateTime = DateTime.Now,
+                ActivityId = ActivityType.Updated.GetHashCode(),
+                TicketId = ticketId,
+                TicketPropertyId = AttributeMethods
+                    .GetByDisplayed<TicketPropertyType>(nameof(ticketProperty)).GetHashCode(),
+                FromValue = ticketProperty.ToString(),
+                ToValue = ticketChanges.ToString()
+            };
+            return act;
+        }
+
         public async Task<ICommonResult<bool>> DeleteTicketAsync(int id)
         {
             try
