@@ -16,6 +16,7 @@ namespace Eicm.DataLayer.Entities.Users
         public string MachineName { get; set; }
         public int UserLocationId { get; set; }
         public string Signature { get; set; }
+        public string Title { get; set; }
         public int UserImageId { get; set; }
         public virtual UserLocation UserLocation { get; set; }
         public virtual User User { get; set; }

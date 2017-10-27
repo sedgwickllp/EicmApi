@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Eicm.Core;
 using Eicm.DataLayer.Entities.TypeCodes;
 using Eicm.Core.Enums;
+using Eicm.DataLayer.Entities.Users;
 
 namespace Eicm.DataLayer.Entities.Tickets
 {
@@ -27,7 +28,8 @@ namespace Eicm.DataLayer.Entities.Tickets
         public bool IsDeleted { get; set; }
         public virtual List<TicketComment> Comments { get; set; }
 
-        
+        public virtual User Requester { get; set; }
+        public virtual User Owner { get; set; }
         public virtual Priority Priority { get; set; }
         public virtual Origin Origin { get; set; }
     }

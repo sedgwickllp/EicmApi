@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Reflection;
 using Eicm.Core;
 using Eicm.Core.Enums;
 using Eicm.DataLayer.Entities.Tickets;
@@ -67,13 +68,14 @@ namespace Eicm.BusinessLogic.DataObjects
 
     public class TicketRequesterModel
     {
-        public TicketRequesterModel(string fn, string ln, string email, string phone, string location)
+        public TicketRequesterModel(string fn, string ln, string email, string phone, string location, string title)
         {
             FirstName = fn;
             LastName = ln;
             Email = email;
             Phone = phone;
             Location = location;
+            Title = title;
         }
         public TicketRequesterModel(UserProfile user)
         {
@@ -82,12 +84,14 @@ namespace Eicm.BusinessLogic.DataObjects
             Email = user.User.Email;
             Phone = user.BusinessExtension.ToString();
             Location = user.UserLocation.Name;
+            Title = user.Title;
         }
         public string FirstName { get; }
         public string LastName { get; }
         public string Email { get; }
         public string Phone { get; }
         public string Location { get; }
+        public string Title { get; }
     }
 
     public class TicketActivityModel

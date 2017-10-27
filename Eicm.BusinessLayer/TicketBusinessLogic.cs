@@ -78,6 +78,19 @@ namespace Eicm.BusinessLogic
             return new CommonResult<List<TicketModel>>(null, dbticketList.ResultCode, dbticketList.Message);
         }
 
+        public async Task<ICommonResult<List<TicketModel>>> GetTicketsByUserIdAsync(int userId)
+        {
+            _logger.Info("Retrieving all tickets for userid " + userId);
+            var dbticketList = await _ticketRepository.GetActiveTicketsByUserIdAsync(userId);
+
+            if (dbticketList.ResultCode)
+            {
+                var ticketList = dbticketList.Payload.Select(ticket => new TicketModel(ticket)).ToList();
+                return new CommonResult<List<TicketModel>>(ticketList, dbticketList.ResultCode);
+            }
+
+            return new CommonResult<List<TicketModel>>(null, dbticketList.ResultCode, dbticketList.Message);
+        }
         public async Task<ICommonResult<int>> AddTicketAsync(TicketAddDTO ticket, int userId)
         {
 

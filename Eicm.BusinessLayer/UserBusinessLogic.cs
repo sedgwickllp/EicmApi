@@ -84,7 +84,8 @@ namespace Eicm.BusinessLogic
                     adUser.Surname,
                     directoryEntry.Properties["l"].Value.ToString(),
                     Convert.ToInt32(directoryEntry.Properties["ipPhone"].Value),
-                    Convert.ToInt32(directoryEntry.Properties["MobilePhone"].Value)
+                    Convert.ToInt32(directoryEntry.Properties["MobilePhone"].Value),
+                    adUser.Description
 
                 );
                 return new CommonResult<int>(userId.Payload, userId.ResultCode);

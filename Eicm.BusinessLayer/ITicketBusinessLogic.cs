@@ -14,5 +14,6 @@ namespace Eicm.BusinessLogic
         Task<ICommonResult<int>> AddTicketAsync(TicketAddDTO ticket, int userId);
         Task<ICommonResult<bool>> UpdateTicketAsync(int id, TicketAddDTO ticket);
         Task<ICommonResult<TicketDTO>> GetTicketDtoByIdAsync(int id);
+        Task<ICommonResult<List<TicketModel>>> GetTicketsByUserIdAsync(int userId);
     }
 }

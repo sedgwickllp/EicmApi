@@ -78,7 +78,7 @@ namespace Eicm.Repository
             }
 
         }
-        public async Task<ICommonResult<int>> AddUserAsync(Guid? adId, string userName, string email, string firstName, string lastName, string location, int phoneExt, int cellPhone)
+        public async Task<ICommonResult<int>> AddUserAsync(Guid? adId, string userName, string email, string firstName, string lastName, string location, int phoneExt, int cellPhone, string title)
         {
             try
             {
@@ -95,7 +95,6 @@ namespace Eicm.Repository
                     CreatedByUserId = 1,
                     ModifedByUserId = 1
                     
-                    
                 };
                 _coreDbContext.Users.Add(newUser);
                 await _coreDbContext.SaveChangesAsync();
@@ -105,6 +104,7 @@ namespace Eicm.Repository
                     BusinessExtension = phoneExt,
                     CellPhoneNumber = cellPhone,
                     UserLocationId = 1,
+                    Title = title,
                     ModifedByUserId = newUser.Id,
                     ModifiedDateTime = DateTime.Now,
                     CreatedDateTime = DateTime.Now,
