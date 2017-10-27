@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Eicm.Core;
 using Eicm.Core.Enums;
 using Eicm.DataLayer.Entities.Tickets;
+using Eicm.Repository;
 
 
 namespace Eicm.BusinessLogic.DataObjects
@@ -25,7 +26,8 @@ namespace Eicm.BusinessLogic.DataObjects
         public TicketModel(Ticket ticket)
         {
             Id = ticket.Id;
-            //Requestor = ticket.RequestedBy;
+            
+            Requestor = ticket.Requester.FirstName + ' ' + ticket.Requester.LastName;
             Summary = ticket.Summary;
             CreatedDateTime = ticket.CreatedDateTime;
             ModifiedDate = ticket.ModifiedDateTime;
@@ -37,7 +39,7 @@ namespace Eicm.BusinessLogic.DataObjects
             if (ticket.CauseId != null) Category = ((CauseType)ticket.CauseId).GetEnumDisplayName();
             IsDeleted = ticket.IsDeleted;
             IsConfidential = ticket.IsConfidential;
-            //Owner = ticket.Owner;
+            Owner = ticket.Owner.FirstName + ' ' + ticket.Owner.LastName;
             //if there are notes, convert them to the notes model
             if (ticket.Comments != null)
             {

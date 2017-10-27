@@ -41,6 +41,17 @@ namespace Eicm.DataLayer.Migrations
             SeedStatusCodes(context);
             SeedActivityCodes(context);
             SeedTicketPropertyCodes(context);
+            //SeedCapabilityCodes(context);
+            //SeedContactCodes(context);
+            //SeedContractGloabalStatusCodes(context);
+            //SeedContractStatusCodes(context);
+            //SeedDataStatusCodes(context);
+            //SeedDollarThresholdCodes(context);
+            //SeedLicenseCodes(context);
+            //SeedLineOfBusinessCodes(context);
+            //SeedProductDispositionCodes(context);
+            //SeedVendorCodes(context);
+
         }
 
         private static void SeedActivityCodes(CoreDbContext context)
@@ -142,6 +153,149 @@ namespace Eicm.DataLayer.Migrations
             context.Statuses.AddOrUpdate(
                 s => s.Id,
                 statusTypeCodes.Select(stc => new Status
+                {
+                    Id = stc.GetHashCode(),
+                    Name = stc.GetType().GetTypeInfo().GetDeclaredField(stc.ToString()).GetCustomAttribute<DisplayNameAttribute>().Value,
+                    Active = stc.GetType().GetTypeInfo().GetDeclaredField(stc.ToString()).GetCustomAttribute<ActiveAttribute>().Value
+                }).ToArray());
+        }
+
+        private static void SeedCapabilityCodes(CoreDbContext context)
+        {
+            var capabilityTypeCodes = (CapabilityType[])Enum.GetValues(typeof(CapabilityType));
+            context.Capabilities.AddOrUpdate(
+                s => s.Id,
+                capabilityTypeCodes.Select(stc => new Capability
+                {
+                    Id = stc.GetHashCode(),
+                    Name = stc.GetType().GetTypeInfo().GetDeclaredField(stc.ToString()).GetCustomAttribute<DisplayNameAttribute>().Value,
+                    Active = stc.GetType().GetTypeInfo().GetDeclaredField(stc.ToString()).GetCustomAttribute<ActiveAttribute>().Value
+                }).ToArray());
+        }
+
+        private static void SeedContactCodes(CoreDbContext context)
+        {
+            var contactTypeCodes = (ContactType[])Enum.GetValues(typeof(ContactType));
+            context.ContactCodes.AddOrUpdate(
+                s => s.Id,
+                contactTypeCodes.Select(stc => new ContactCode
+                {
+                    Id = stc.GetHashCode(),
+                    Name = stc.GetType().GetTypeInfo().GetDeclaredField(stc.ToString()).GetCustomAttribute<DisplayNameAttribute>().Value,
+                    Active = stc.GetType().GetTypeInfo().GetDeclaredField(stc.ToString()).GetCustomAttribute<ActiveAttribute>().Value
+                }).ToArray());
+        }
+
+        private static void SeedContractGloabalStatusCodes(CoreDbContext context)
+        {
+            var contractGlobalStatusTypeCodes = (ContractGlobalStatusType[])Enum.GetValues(typeof(ContractGlobalStatusType));
+            context.ContractGlobalStatuses.AddOrUpdate(
+                s => s.Id,
+                contractGlobalStatusTypeCodes.Select(stc => new ContractGlobalStatus
+                {
+                    Id = stc.GetHashCode(),
+                    Name = stc.GetType().GetTypeInfo().GetDeclaredField(stc.ToString()).GetCustomAttribute<DisplayNameAttribute>().Value,
+                    Active = stc.GetType().GetTypeInfo().GetDeclaredField(stc.ToString()).GetCustomAttribute<ActiveAttribute>().Value
+                }).ToArray());
+        }
+
+        private static void SeedContractStatusCodes(CoreDbContext context)
+        {
+            var contractStatusTypeCodes = (ContractStatusType[])Enum.GetValues(typeof(ContractStatusType));
+            context.ContractStatuses.AddOrUpdate(
+                s => s.Id,
+                contractStatusTypeCodes.Select(stc => new ContractStatus
+                {
+                    Id = stc.GetHashCode(),
+                    Name = stc.GetType().GetTypeInfo().GetDeclaredField(stc.ToString()).GetCustomAttribute<DisplayNameAttribute>().Value,
+                    Active = stc.GetType().GetTypeInfo().GetDeclaredField(stc.ToString()).GetCustomAttribute<ActiveAttribute>().Value
+                }).ToArray());
+        }
+
+        private static void SeedDataStatusCodes(CoreDbContext context)
+        {
+            var dataStatusTypeCodes = (DataStatusType[])Enum.GetValues(typeof(DataStatusType));
+            context.DataStatuses.AddOrUpdate(
+                s => s.Id,
+                dataStatusTypeCodes.Select(stc => new DataStatus
+                {
+                    Id = stc.GetHashCode(),
+                    Name = stc.GetType().GetTypeInfo().GetDeclaredField(stc.ToString()).GetCustomAttribute<DisplayNameAttribute>().Value,
+                    Active = stc.GetType().GetTypeInfo().GetDeclaredField(stc.ToString()).GetCustomAttribute<ActiveAttribute>().Value
+                }).ToArray());
+        }
+
+        private static void SeedDollarThresholdCodes(CoreDbContext context)
+        {
+            var dollarThresholdTypeCodes = (DollarThresholdType[])Enum.GetValues(typeof(DollarThresholdType));
+            context.DollarThresholds.AddOrUpdate(
+                s => s.Id,
+                dollarThresholdTypeCodes.Select(stc => new DollarThreshold
+                {
+                    Id = stc.GetHashCode(),
+                    Name = stc.GetType().GetTypeInfo().GetDeclaredField(stc.ToString()).GetCustomAttribute<DisplayNameAttribute>().Value,
+                    Active = stc.GetType().GetTypeInfo().GetDeclaredField(stc.ToString()).GetCustomAttribute<ActiveAttribute>().Value
+                }).ToArray());
+        }
+
+        private static void SeedLicenseCodes(CoreDbContext context)
+        {
+            var licenseTypeCodes = (LicenseType[])Enum.GetValues(typeof(LicenseType));
+            context.Licenses.AddOrUpdate(
+                s => s.Id,
+                licenseTypeCodes.Select(stc => new License
+                {
+                    Id = stc.GetHashCode(),
+                    Name = stc.GetType().GetTypeInfo().GetDeclaredField(stc.ToString()).GetCustomAttribute<DisplayNameAttribute>().Value,
+                    Active = stc.GetType().GetTypeInfo().GetDeclaredField(stc.ToString()).GetCustomAttribute<ActiveAttribute>().Value
+                }).ToArray());
+        }
+
+        private static void SeedLineOfBusinessCodes(CoreDbContext context)
+        {
+            var lineOfBusinessTypeCodes = (LineOfBusinessType[])Enum.GetValues(typeof(LineOfBusinessType));
+            context.LineOfBusinesses.AddOrUpdate(
+                s => s.Id,
+                lineOfBusinessTypeCodes.Select(stc => new LineOfBusiness
+                {
+                    Id = stc.GetHashCode(),
+                    Name = stc.GetType().GetTypeInfo().GetDeclaredField(stc.ToString()).GetCustomAttribute<DisplayNameAttribute>().Value,
+                    Active = stc.GetType().GetTypeInfo().GetDeclaredField(stc.ToString()).GetCustomAttribute<ActiveAttribute>().Value
+                }).ToArray());
+        }
+
+        private static void SeedProductDispositionCodes(CoreDbContext context)
+        {
+            var productDispositionTypeCodes = (ProductDispositionType[])Enum.GetValues(typeof(ProductDispositionType));
+            context.ProductDispositions.AddOrUpdate(
+                s => s.Id,
+                productDispositionTypeCodes.Select(stc => new ProductDisposition
+                {
+                    Id = stc.GetHashCode(),
+                    Name = stc.GetType().GetTypeInfo().GetDeclaredField(stc.ToString()).GetCustomAttribute<DisplayNameAttribute>().Value,
+                    Active = stc.GetType().GetTypeInfo().GetDeclaredField(stc.ToString()).GetCustomAttribute<ActiveAttribute>().Value
+                }).ToArray());
+        }
+
+        private static void SeedVendorCodes(CoreDbContext context)
+        {
+            var vendorTypeCodes = (VendorType[])Enum.GetValues(typeof(VendorType));
+            context.VendorCodes.AddOrUpdate(
+                s => s.Id,
+                vendorTypeCodes.Select(stc => new VendorCode()
+                {
+                    Id = stc.GetHashCode(),
+                    Name = stc.GetType().GetTypeInfo().GetDeclaredField(stc.ToString()).GetCustomAttribute<DisplayNameAttribute>().Value,
+                    Active = stc.GetType().GetTypeInfo().GetDeclaredField(stc.ToString()).GetCustomAttribute<ActiveAttribute>().Value
+                }).ToArray());
+        }
+
+        private static void SeedLocationCodes(CoreDbContext context)
+        {
+            var locationTypeCodes = (LocationType[])Enum.GetValues(typeof(LocationType));
+            context.Locations.AddOrUpdate(
+                s => s.Id,
+                locationTypeCodes.Select(stc => new Location()
                 {
                     Id = stc.GetHashCode(),
                     Name = stc.GetType().GetTypeInfo().GetDeclaredField(stc.ToString()).GetCustomAttribute<DisplayNameAttribute>().Value,

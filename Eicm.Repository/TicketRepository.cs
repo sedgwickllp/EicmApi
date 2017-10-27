@@ -63,6 +63,25 @@ namespace Eicm.Repository
             }
 
         }
+
+        public async Task<ICommonResult<List<Ticket>>> GetActiveTicketsByUserIdAsync(int userId)
+        {
+            try
+            {
+                var tickets = await _coreDbContext.Tickets
+                    .Where(tic => tic.IsActive && tic.OwnerId == userId)
+                    .Include(t => t.Priority)
+                    .OrderBy(c => c.CreatedDateTime)
+                    .ToListAsync();
+                return new CommonResult<List<Ticket>>(tickets, ResultCode.Success);
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.GetBaseException());
+                return new CommonResult<List<Ticket>>(null, ResultCode.Failure, ex.Message);
+            }
+
+        }
         //thinking business logic will get userIds for requester and owner.
         public async Task<ICommonResult<int>> AddTicketAsync(string summary, int requesterId, int? ownerId, int? causeId, 
             int statusId, int priorityId, int originId, int? categoryId, int? subcategoryId, bool isConfidential, bool isVip, int userId)

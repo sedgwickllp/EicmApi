@@ -114,3 +114,5 @@ C:\projects\EicmApi\Eicm.Api\bin\EntityFramework.xml
 C:\projects\EicmApi\Eicm.Api\obj\Release\Eicm.Api.csprojResolveAssemblyReference.cache
 C:\projects\EicmApi\Eicm.Api\obj\Release\Eicm.Api.dll
 C:\projects\EicmApi\Eicm.Api\obj\Release\Eicm.Api.pdb
+C:\projects\EicmApi\Eicm.Api\bin\EntityFramework.SqlServer.dll
+C:\projects\EicmApi\Eicm.Api\bin\EntityFramework.SqlServer.xml

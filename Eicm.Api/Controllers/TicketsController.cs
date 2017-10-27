@@ -45,7 +45,7 @@ namespace Eicm.Api.Controllers
                 return BadRequest(ex.Message);
             }
         }
-/*
+
         [HttpGet]
         [Route("api/tickets/user/{userId}")]
         public async Task<IHttpActionResult> GetByUser(int userId)
@@ -72,7 +72,7 @@ namespace Eicm.Api.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        */
+        
         [HttpGet]
         [Route("api/tickets")]
         public async Task<IHttpActionResult> Get()

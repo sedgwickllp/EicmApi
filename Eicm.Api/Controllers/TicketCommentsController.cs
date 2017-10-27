@@ -81,7 +81,7 @@ namespace Eicm.Api.Controllers
             {
                 return BadRequest("Ticket object was null");
             }
-            else if (ticketComment.Comment == null)
+            if (ticketComment.Comment == null)
             {
                 return BadRequest("Comment cannot be null");
             }

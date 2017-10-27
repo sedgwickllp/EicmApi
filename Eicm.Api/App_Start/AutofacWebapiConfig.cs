@@ -46,6 +46,20 @@ namespace Eicm.Api
             builder.RegisterType<UserBusinessLogic>()
                 .As<IUserBusinessLogic>();
 
+            builder.RegisterType<VendorBusinessLogic>()
+                .As<IVendorBusinessLogic>();
+
+            builder.RegisterType<ContractBusinessLogic>()
+                .As<IContractBusinessLogic>();
+
+
+            builder.RegisterType<ContractAssetBusinessLogic>()
+                .As<IContractAssetBusinessLogic>();
+
+
+            builder.RegisterType<AssetBusinessLogic>()
+                .As<IAssetBusinessLogic>();
+
             builder.RegisterType<TicketRepository>()
                 .As<ITicketRepository>();
                 //.InstancePerRequest();
@@ -56,6 +70,19 @@ namespace Eicm.Api
 
             builder.RegisterType<UserRepository>()
                 .As<IUserRepository>();
+
+            builder.RegisterType<VendorRepository>()
+                .As<IVendorRepository>();
+
+            builder.RegisterType<ContractRepository>()
+                .As<IContractRepository>();
+
+            builder.RegisterType<AssetRepository>()
+                .As<IAssetRepository>();
+
+            builder.RegisterType<ContractAssetRepository>()
+                .As<IContractAssetRepository>();
+
             //Set the dependency resolver to be Autofac.  
             Container = builder.Build();
 

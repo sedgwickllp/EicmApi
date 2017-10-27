@@ -114,3 +114,7 @@ C:\projects\EicmApi\Eicm.Api\bin\System.Web.Http.WebHost.xml
 C:\projects\EicmApi\Eicm.Api\bin\EntityFramework.xml
 C:\projects\EicmApi\Eicm.Api\obj\Debug\Eicm.Api.dll
 C:\projects\EicmApi\Eicm.Api\obj\Debug\Eicm.Api.pdb
+C:\projects\EicmApi\Eicm.Api\bin\EntityFramework.SqlServer.dll
+C:\projects\EicmApi\Eicm.Api\bin\EntityFramework.SqlServer.xml
+C:\projects\EicmApi\Eicm.Api\bin\Swashbuckle.Core.dll
+C:\projects\EicmApi\Eicm.Api\bin\WebActivatorEx.dll

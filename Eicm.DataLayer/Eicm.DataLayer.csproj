@@ -51,8 +51,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CoreDbContext.cs" />
-    <Compile Include="Entities\Assets\Assets.cs" />
+    <Compile Include="Entities\Assets\Asset.cs" />
     <Compile Include="Entities\Assets\AssetType.cs" />
+    <Compile Include="Entities\Core\Address.cs" />
+    <Compile Include="Entities\Core\AddressType.cs" />
     <Compile Include="Entities\EntityBase.cs" />
     <Compile Include="Entities\EnumEntityBase.cs" />
     <Compile Include="Entities\Tickets\Ticket.cs" />
@@ -60,7 +62,20 @@
     <Compile Include="Entities\Tickets\TicketComment.cs" />
     <Compile Include="Entities\Tickets\TicketCommentHistory.cs" />
     <Compile Include="Entities\Tickets\TicketHistory.cs" />
+    <Compile Include="Entities\TypeCodes\UserRange.cs" />
+    <Compile Include="Entities\TypeCodes\Capability.cs" />
     <Compile Include="Entities\TypeCodes\Activity.cs" />
+    <Compile Include="Entities\TypeCodes\Location.cs" />
+    <Compile Include="Entities\TypeCodes\PricingMethod.cs" />
+    <Compile Include="Entities\TypeCodes\VendorCode.cs" />
+    <Compile Include="Entities\TypeCodes\ProductDisposition.cs" />
+    <Compile Include="Entities\TypeCodes\LineOfBusiness.cs" />
+    <Compile Include="Entities\TypeCodes\License.cs" />
+    <Compile Include="Entities\TypeCodes\DollarThreshold.cs" />
+    <Compile Include="Entities\TypeCodes\DataStatus.cs" />
+    <Compile Include="Entities\TypeCodes\ContractStatus.cs" />
+    <Compile Include="Entities\TypeCodes\ContractGlobalStatus.cs" />
+    <Compile Include="Entities\TypeCodes\ContactCode.cs" />
     <Compile Include="Entities\TypeCodes\Category.cs" />
     <Compile Include="Entities\TypeCodes\Priority.cs" />
     <Compile Include="Entities\TypeCodes\Origin.cs" />
@@ -74,6 +89,20 @@
     <Compile Include="Entities\Users\UserAsset.cs" />
     <Compile Include="Entities\Users\UserGroup.cs" />
     <Compile Include="Entities\Users\UserProfile.cs" />
+    <Compile Include="Entities\Vendors\Account.cs" />
+    <Compile Include="Entities\Vendors\ContractContact.cs" />
+    <Compile Include="Entities\Vendors\AccountContact.cs" />
+    <Compile Include="Entities\Vendors\VendorContact.cs" />
+    <Compile Include="Entities\Vendors\VendorContract.cs" />
+    <Compile Include="Entities\Vendors\AccountContract.cs" />
+    <Compile Include="Entities\Vendors\Contact.cs" />
+    <Compile Include="Entities\Vendors\ContactAddress.cs" />
+    <Compile Include="Entities\Vendors\Contract.cs" />
+    <Compile Include="Entities\Vendors\ContractAsset.cs" />
+    <Compile Include="Entities\Vendors\ContractComment.cs" />
+    <Compile Include="Entities\Vendors\Vendor.cs" />
+    <Compile Include="Entities\Vendors\VendorAccount.cs" />
+    <Compile Include="Entities\Vendors\VendorAddress.cs" />
     <Compile Include="ICoreDbContext.cs" />
     <Compile Include="Migrations\201706072058443_reset.cs" />
     <Compile Include="Migrations\201706072058443_reset.Designer.cs">
@@ -114,6 +143,102 @@
     <Compile Include="Migrations\201706271434058_update user table.cs" />
     <Compile Include="Migrations\201706271434058_update user table.Designer.cs">
       <DependentUpon>201706271434058_update user table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707061624057_update user profile - add title.cs" />
+    <Compile Include="Migrations\201707061624057_update user profile - add title.Designer.cs">
+      <DependentUpon>201707061624057_update user profile - add title.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708161305053_contract tables.cs" />
+    <Compile Include="Migrations\201708161305053_contract tables.Designer.cs">
+      <DependentUpon>201708161305053_contract tables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708161703032_vendor update.cs" />
+    <Compile Include="Migrations\201708161703032_vendor update.Designer.cs">
+      <DependentUpon>201708161703032_vendor update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708162104138_revise vendor tables namespaces.cs" />
+    <Compile Include="Migrations\201708162104138_revise vendor tables namespaces.Designer.cs">
+      <DependentUpon>201708162104138_revise vendor tables namespaces.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708171423509_rename accountcontract table to accountContact.cs" />
+    <Compile Include="Migrations\201708171423509_rename accountcontract table to accountContact.Designer.cs">
+      <DependentUpon>201708171423509_rename accountcontract table to accountContact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708181407009_add additional fields to contract table.cs" />
+    <Compile Include="Migrations\201708181407009_add additional fields to contract table.Designer.cs">
+      <DependentUpon>201708181407009_add additional fields to contract table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708181531237_modify vendor tables.cs" />
+    <Compile Include="Migrations\201708181531237_modify vendor tables.Designer.cs">
+      <DependentUpon>201708181531237_modify vendor tables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708181858591_modify vendor tables again.cs" />
+    <Compile Include="Migrations\201708181858591_modify vendor tables again.Designer.cs">
+      <DependentUpon>201708181858591_modify vendor tables again.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708221308297_add relational tables for objects.cs" />
+    <Compile Include="Migrations\201708221308297_add relational tables for objects.Designer.cs">
+      <DependentUpon>201708221308297_add relational tables for objects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708221350279_add relational table vendor_account.cs" />
+    <Compile Include="Migrations\201708221350279_add relational table vendor_account.Designer.cs">
+      <DependentUpon>201708221350279_add relational table vendor_account.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708221404287_move vendor_account into vendor schema.cs" />
+    <Compile Include="Migrations\201708221404287_move vendor_account into vendor schema.Designer.cs">
+      <DependentUpon>201708221404287_move vendor_account into vendor schema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708221534253_add address table.cs" />
+    <Compile Include="Migrations\201708221534253_add address table.Designer.cs">
+      <DependentUpon>201708221534253_add address table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709052141105_tie account to contacts.cs" />
+    <Compile Include="Migrations\201709052141105_tie account to contacts.Designer.cs">
+      <DependentUpon>201709052141105_tie account to contacts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709061425465_link assets to contracts and users.cs" />
+    <Compile Include="Migrations\201709061425465_link assets to contracts and users.Designer.cs">
+      <DependentUpon>201709061425465_link assets to contracts and users.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709061603357_link assets to contracts.cs" />
+    <Compile Include="Migrations\201709061603357_link assets to contracts.Designer.cs">
+      <DependentUpon>201709061603357_link assets to contracts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709072133411_add vendor-contract table.cs" />
+    <Compile Include="Migrations\201709072133411_add vendor-contract table.Designer.cs">
+      <DependentUpon>201709072133411_add vendor-contract table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709181828081_update-contract-table-nullable-fields.cs" />
+    <Compile Include="Migrations\201709181828081_update-contract-table-nullable-fields.Designer.cs">
+      <DependentUpon>201709181828081_update-contract-table-nullable-fields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709182118332_update-contract-table-change-yearlybudget-to-cost.cs" />
+    <Compile Include="Migrations\201709182118332_update-contract-table-change-yearlybudget-to-cost.Designer.cs">
+      <DependentUpon>201709182118332_update-contract-table-change-yearlybudget-to-cost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709211456311_remove-join to contract-comments table.cs" />
+    <Compile Include="Migrations\201709211456311_remove-join to contract-comments table.Designer.cs">
+      <DependentUpon>201709211456311_remove-join to contract-comments table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709281430321_modify asset tables.cs" />
+    <Compile Include="Migrations\201709281430321_modify asset tables.Designer.cs">
+      <DependentUpon>201709281430321_modify asset tables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709282030062_tempId for asset table.cs" />
+    <Compile Include="Migrations\201709282030062_tempId for asset table.Designer.cs">
+      <DependentUpon>201709282030062_tempId for asset table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709282037451_add accountnum to contract table.cs" />
+    <Compile Include="Migrations\201709282037451_add accountnum to contract table.Designer.cs">
+      <DependentUpon>201709282037451_add accountnum to contract table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710131652104_additional fields added contract table.cs" />
+    <Compile Include="Migrations\201710131652104_additional fields added contract table.Designer.cs">
+      <DependentUpon>201710131652104_additional fields added contract table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710261553094_modify vendor to include contract.cs" />
+    <Compile Include="Migrations\201710261553094_modify vendor to include contract.Designer.cs">
+      <DependentUpon>201710261553094_modify vendor to include contract.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -159,6 +284,78 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706271434058_update user table.resx">
       <DependentUpon>201706271434058_update user table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707061624057_update user profile - add title.resx">
+      <DependentUpon>201707061624057_update user profile - add title.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708161305053_contract tables.resx">
+      <DependentUpon>201708161305053_contract tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708161703032_vendor update.resx">
+      <DependentUpon>201708161703032_vendor update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708162104138_revise vendor tables namespaces.resx">
+      <DependentUpon>201708162104138_revise vendor tables namespaces.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708171423509_rename accountcontract table to accountContact.resx">
+      <DependentUpon>201708171423509_rename accountcontract table to accountContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708181407009_add additional fields to contract table.resx">
+      <DependentUpon>201708181407009_add additional fields to contract table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708181531237_modify vendor tables.resx">
+      <DependentUpon>201708181531237_modify vendor tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708181858591_modify vendor tables again.resx">
+      <DependentUpon>201708181858591_modify vendor tables again.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708221308297_add relational tables for objects.resx">
+      <DependentUpon>201708221308297_add relational tables for objects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708221350279_add relational table vendor_account.resx">
+      <DependentUpon>201708221350279_add relational table vendor_account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708221404287_move vendor_account into vendor schema.resx">
+      <DependentUpon>201708221404287_move vendor_account into vendor schema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708221534253_add address table.resx">
+      <DependentUpon>201708221534253_add address table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709052141105_tie account to contacts.resx">
+      <DependentUpon>201709052141105_tie account to contacts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709061425465_link assets to contracts and users.resx">
+      <DependentUpon>201709061425465_link assets to contracts and users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709061603357_link assets to contracts.resx">
+      <DependentUpon>201709061603357_link assets to contracts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709072133411_add vendor-contract table.resx">
+      <DependentUpon>201709072133411_add vendor-contract table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709181828081_update-contract-table-nullable-fields.resx">
+      <DependentUpon>201709181828081_update-contract-table-nullable-fields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709182118332_update-contract-table-change-yearlybudget-to-cost.resx">
+      <DependentUpon>201709182118332_update-contract-table-change-yearlybudget-to-cost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709211456311_remove-join to contract-comments table.resx">
+      <DependentUpon>201709211456311_remove-join to contract-comments table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709281430321_modify asset tables.resx">
+      <DependentUpon>201709281430321_modify asset tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709282030062_tempId for asset table.resx">
+      <DependentUpon>201709282030062_tempId for asset table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709282037451_add accountnum to contract table.resx">
+      <DependentUpon>201709282037451_add accountnum to contract table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710131652104_additional fields added contract table.resx">
+      <DependentUpon>201710131652104_additional fields added contract table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710261553094_modify vendor to include contract.resx">
+      <DependentUpon>201710261553094_modify vendor to include contract.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
