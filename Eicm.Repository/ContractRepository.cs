@@ -33,60 +33,16 @@ namespace Eicm.Repository
                 return new CommonResult<Contract>(null, ResultCode.Failure, ex.Message);
             }
         }
-        public async Task<ICommonResult<List<AccountContract>>> GetAccountContractsAsync(int id)
-        {
-            try
-            {
-                var contracts = await _coreDbContext.AccountContracts.Include(c => c.Contract).OrderBy(c => c.Contract.TermStartDate).ToListAsync();
-                return new CommonResult<List<AccountContract>>(contracts, ResultCode.Success);
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.GetBaseException());
-                return new CommonResult<List<AccountContract>>(null, ResultCode.Failure, ex.Message);
-            }
+       
 
-        }
-
-        public async Task<ICommonResult<int>> AddAssetAsync(Asset asset, int contractId)
-        {
-            try
-            {
-                _coreDbContext.Assets.Add(asset);
-
-                var newContractAsset = new ContractAsset
-                {
-                    ContractId = contractId,
-                    AssetId = asset.Id
-                };
-                _coreDbContext.ContractAssets.Add(newContractAsset);
-                await _coreDbContext.SaveChangesAsync();
-                return new CommonResult<int>(asset.Id, ResultCode.Success);
-            }
-            catch (Exception ex)
-            {
-                _log.Error(ex.GetBaseException());
-                return new CommonResult<int>(-1, ResultCode.Failure, ex.Message);
-            }
-        }
-        public async Task<ICommonResult<int>> AddContractAsync(Contract contract,  int vendorId)
+       
+        public async Task<ICommonResult<int>> AddContractAsync(Contract contract)
         {
             try { 
                 _coreDbContext.Contracts.Add(contract);
                 await _coreDbContext.SaveChangesAsync();
 
-                var newVendorContract = new VendorContract
-                {
-                    VendorId = vendorId,
-                    ContractId = contract.Id,
-                    CreatedByUserId = contract.CreatedByUserId,
-                    ModifedByUserId = contract.ModifedByUserId,
-                    CreatedDateTime = DateTime.Now,
-                    ModifiedDateTime = DateTime.Now,
-                    IsActive = true
-                };
-                _coreDbContext.VendorContracts.Add(newVendorContract);
-                await _coreDbContext.SaveChangesAsync();
+                
                 return new CommonResult<int>(contract.Id, ResultCode.Success);
             }
             catch (Exception ex)

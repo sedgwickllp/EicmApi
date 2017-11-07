@@ -12,6 +12,5 @@ namespace Eicm.Repository
     public interface IAssetRepository
     {
         Task<ICommonResult<int>> AddAssetAsync(Asset asset);
-        Task<ICommonResult<int>> AddAssetToContractAsync(int assetId, int contractId);
     }
 }

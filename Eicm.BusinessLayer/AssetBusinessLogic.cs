@@ -22,27 +22,23 @@ namespace Eicm.BusinessLogic
         
         public async Task<ICommonResult<int>> AddAssetAsync(AssetModel asset)
         {
-            var dbAsset = new Asset();
-            
-            dbAsset.Description = asset.Description;
-            dbAsset.Name = asset.Name;
-            dbAsset.LicenseCount = asset.LicenseCount;
-            dbAsset.CapabilityId = asset.CapabilityId;
-            
-            
-            dbAsset.ModifedByUserId = asset.ModifedByUserId;
-            dbAsset.ModifiedDateTime = asset.ModifiedDateTime;
-            dbAsset.CreatedByUserId = asset.CreatedByUserId;
-            dbAsset.CreatedDateTime = asset.CreatedDateTime;
+            var dbAsset = new Asset()
+            {
+                Description = asset.Description,
+                Name = asset.Name,
+                LicenseCount = asset.LicenseCount,
+                CapabilityId = asset.CapabilityId,
+
+
+                ModifedByUserId = asset.ModifedByUserId,
+                ModifiedDateTime = asset.ModifiedDateTime,
+                CreatedByUserId = asset.CreatedByUserId,
+                CreatedDateTime = asset.CreatedDateTime
+            };
             var newAsset = await _assetRepository.AddAssetAsync(dbAsset);
             return new CommonResult<int>(newAsset.Payload, newAsset.ResultCode);
         }
 
-        public async Task<ICommonResult<int>> AddAssetToContractAsync(AssetModel asset, int contractId)
-        {
-            var newAsset = await AddAssetAsync(asset);
-            var newContractAsset = await _assetRepository.AddAssetToContractAsync(newAsset.Payload, contractId);
-            return new CommonResult<int>(newAsset.Payload, newContractAsset.ResultCode);
-        }
+       
     }
 }

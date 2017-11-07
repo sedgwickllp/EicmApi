@@ -47,7 +47,9 @@
   <ItemGroup>
     <Compile Include="ContractAssetBusinessLogic.cs" />
     <Compile Include="AssetBusinessLogic.cs" />
+    <Compile Include="ContactBusinessLogic.cs" />
     <Compile Include="DataObjects\AssetDTO.cs" />
+    <Compile Include="DataObjects\ContactDTO.cs" />
     <Compile Include="DataObjects\ContractAddDTO.cs" />
     <Compile Include="DataObjects\TicketAddDTO.cs" />
     <Compile Include="DataObjects\TicketCommentAddModel.cs" />
@@ -59,14 +61,17 @@
     <Compile Include="DataObjects\UserProfileModel.cs" />
     <Compile Include="DataObjects\UserModel.cs" />
     <Compile Include="DataObjects\ContractDTO.cs" />
+    <Compile Include="DataObjects\VendorContractModel.cs" />
     <Compile Include="DataObjects\VendorDTO.cs" />
     <Compile Include="IContractAssetBusinessLogic.cs" />
     <Compile Include="IAssetBusinessLogic.cs" />
+    <Compile Include="IContactBusinessLogic.cs" />
     <Compile Include="ITicketBusinessLogic.cs" />
     <Compile Include="ITicketCommentsBusinessLogic.cs" />
     <Compile Include="IUserBusinessLogic.cs" />
     <Compile Include="ITypeCodesBusinessLogic.cs" />
     <Compile Include="IContractBusinessLogic.cs" />
+    <Compile Include="IVendorContractBusinessLogic.cs" />
     <Compile Include="IVendorBusinessLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TicketBusinessLogic.cs" />
@@ -74,6 +79,7 @@
     <Compile Include="TypeCodesBusinessLogic.cs" />
     <Compile Include="UserBusinessLogic.cs" />
     <Compile Include="ContractBusinessLogic.cs" />
+    <Compile Include="VendorContractBusinessLogic.cs" />
     <Compile Include="VendorBusinessLogic.cs" />
   </ItemGroup>
   <ItemGroup>

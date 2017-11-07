@@ -34,9 +34,10 @@ namespace Eicm.BusinessLogic
                 return new CommonResult<VendorDTO>(null, dbvendor.ResultCode, dbvendor.Message);
             }
             _logger.Info("Vendor retrieved");
-            var vendor = new VendorDTO();
-            
-            vendor.VendorDetail = new VendorDetailModel(dbvendor.Payload);
+            var vendor = new VendorDTO()
+            {
+                VendorDetail = new VendorDetailModel(dbvendor.Payload)
+            };
             //vendor.VendorAccounts = dbvendor.Payload.VendorAccounts?.Select(x => new VendorAccountsModel(x.Account)).ToList();
 
             return new CommonResult<VendorDTO>(vendor, true); 

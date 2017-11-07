@@ -52,6 +52,10 @@
   <ItemGroup>
     <Compile Include="ContractAssetRepository.cs" />
     <Compile Include="AssetRepository.cs" />
+    <Compile Include="ContactRepository.cs" />
+    <Compile Include="IContactRepository.cs" />
+    <Compile Include="IVendorContractRepository.cs" />
+    <Compile Include="VendorContractRepository.cs" />
     <Compile Include="IContractAssetRepository.cs" />
     <Compile Include="IAssetRepository.cs" />
     <Compile Include="ITicketCommentsRepository.cs" />

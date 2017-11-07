@@ -60,6 +60,12 @@ namespace Eicm.Api
             builder.RegisterType<AssetBusinessLogic>()
                 .As<IAssetBusinessLogic>();
 
+            builder.RegisterType<VendorContractBusinessLogic>()
+                .As<IVendorContractBusinessLogic>();
+
+            builder.RegisterType<ContactBusinessLogic>()
+                .As<IContactBusinessLogic>();
+
             builder.RegisterType<TicketRepository>()
                 .As<ITicketRepository>();
                 //.InstancePerRequest();
@@ -82,6 +88,12 @@ namespace Eicm.Api
 
             builder.RegisterType<ContractAssetRepository>()
                 .As<IContractAssetRepository>();
+
+            builder.RegisterType<VendorContractRepository>()
+                .As<IVendorContractRepository>();
+
+            builder.RegisterType<ContactRepository>()
+                .As<IContactRepository>();
 
             //Set the dependency resolver to be Autofac.  
             Container = builder.Build();

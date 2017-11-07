@@ -172,11 +172,13 @@
     <Compile Include="Controllers\ContractAssetController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\AssetController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\TicketCommentsController.cs" />
     <Compile Include="Controllers\TicketsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\TypeCodesController.cs" />
     <Compile Include="Controllers\ContractController.cs" />
+    <Compile Include="Controllers\VendorContractController.cs" />
     <Compile Include="Controllers\VendorsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

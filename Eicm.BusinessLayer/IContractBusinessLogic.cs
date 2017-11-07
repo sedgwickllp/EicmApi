@@ -8,6 +8,6 @@ namespace Eicm.BusinessLogic
     public interface IContractBusinessLogic
     {
         Task<ICommonResult<ContractDTO>> GetContractByIdAsync(int id);
-        Task<ICommonResult<int>> AddContractAsync(VendorContractAddDTO contract);
+        Task<ICommonResult<int>> AddContractAsync(ContractAddDTO contract);
     }
 }

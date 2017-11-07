@@ -39,26 +39,6 @@ namespace Eicm.Repository
        
     
 
-        public async Task<ICommonResult<int>> AddAssetToContractAsync(int assetId, int contractId)
-        {
-            try
-            {
-    
-                var newContractAsset = new ContractAsset
-                {
-                    ContractId = contractId,
-                    AssetId = assetId
-                };
-            _coreDbContext.ContractAssets.Add(newContractAsset);
-            await _coreDbContext.SaveChangesAsync();
-                return new CommonResult<int>(assetId, ResultCode.Success);
-            }
-            catch (Exception ex)
-            {
-            _log.Error(ex.GetBaseException());
-            return new CommonResult<int>(-1, ResultCode.Failure, ex.Message);
-            }
-        }
 
     }
 }

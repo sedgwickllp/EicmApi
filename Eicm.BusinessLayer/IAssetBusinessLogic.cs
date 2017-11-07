@@ -8,6 +8,5 @@ namespace Eicm.BusinessLogic
     public interface IAssetBusinessLogic
     {
         Task<ICommonResult<int>> AddAssetAsync(AssetModel asset);
-        Task<ICommonResult<int>> AddAssetToContractAsync(AssetModel asset, int contractId);
     }
 }

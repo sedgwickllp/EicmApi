@@ -12,9 +12,7 @@ namespace Eicm.Repository
     public interface IContractRepository
     {
         Task<ICommonResult<Contract>> GetContractByIdAsync(int id);
-        Task<ICommonResult<List<AccountContract>>> GetAccountContractsAsync(int id);
        
-        Task<ICommonResult<int>> AddContractAsync(Contract contract,  int vendorId);
-        Task<ICommonResult<int>> AddAssetAsync(Asset asset,  int contractId);
+        Task<ICommonResult<int>> AddContractAsync(Contract contract);
     }
 }

@@ -47,9 +47,9 @@ namespace Eicm.Api.Controllers
 
         [HttpPost]
         [Route("api/contracts/")]
-        public async Task<IHttpActionResult> Add([FromBody] VendorContractAddDTO vendorContract)
+        public async Task<IHttpActionResult> Add([FromBody] ContractAddDTO contract)
         {
-            if (vendorContract == null)
+            if (contract == null)
             {
                 return BadRequest("Contract is null");
             }
@@ -57,7 +57,7 @@ namespace Eicm.Api.Controllers
             
             _logger.Info("Adding contract");
 
-            var newContract = await _contractsBusinessLogic.AddContractAsync(vendorContract); //TODO change to user object vs id?
+            var newContract = await _contractsBusinessLogic.AddContractAsync(contract); 
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

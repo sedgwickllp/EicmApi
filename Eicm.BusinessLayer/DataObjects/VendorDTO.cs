@@ -14,14 +14,15 @@ namespace Eicm.BusinessLogic.DataObjects
     {
         public VendorDetailModel VendorDetail;
         //public List<VendorAccountsModel> VendorAccounts;
+        public List<VendorContactModel> Contacts { get; set; }
+        public List<ContractDTO> VendorContracts { get; set; }
     }
     public class VendorDetailModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public VendorDetailModel() {}
-        public List<VendorContactModel> Contacts { get; set; }
-        public List<ContractDTO> VendorContracts { get; set; }
+        
 
         public VendorDetailModel(Vendor vendor)
         {
@@ -80,20 +81,6 @@ namespace Eicm.BusinessLogic.DataObjects
        
     }
 
-    public class VendorContractModel
-    {
-        public int VendorId { get; set; }
-        public int ContractId { get; set; }
-        public List<ContractAsset> ContractAssets { get; set; }
-        public VendorContractModel(VendorContract vendorContract)
-        {
-            VendorId = vendorContract.VendorId;
-            ContractId = vendorContract.ContractId;
-            //ContractAssets = vendorContract.ContractAssets.Select(x => new ContractAsset(x.Contract)).ToList();
-            //Contracts = account.AccountContracts.Select(x => new ContractModel(x.Contract)).ToList();
-            //ticket.Comments.Select(n => (TicketNoteModel)n).ToList();
-        }
-    }
 
 
     public class VendorUpdateModel

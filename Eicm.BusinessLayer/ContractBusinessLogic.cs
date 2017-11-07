@@ -35,11 +35,12 @@ namespace Eicm.BusinessLogic
                 return new CommonResult<ContractDTO>(null, dbContract.ResultCode, dbContract.Message);
             }
             _logger.Info("Contract retrieved");
-            
-            
-            var contract = new ContractDTO();
-            contract.ContractDetail = new ContractDetailModel(dbContract.Payload);
-            
+
+
+            var contract = new ContractDTO()
+            {
+                ContractDetail = new ContractDetailModel(dbContract.Payload)
+            };
             return new CommonResult<ContractDTO>(contract, true); 
         }
 
@@ -59,54 +60,36 @@ namespace Eicm.BusinessLogic
 
             return new CommonResult<bool>(dbVendor.ResultCode);
         }*/
-     public async Task<ICommonResult<int>> AddContractAsync(VendorContractAddDTO vendorContract)
+     public async Task<ICommonResult<int>> AddContractAsync(ContractAddDTO contract)
      {
-         var contract = vendorContract.Contract;
-             var dbcontract = new Contract();
-             dbcontract.TermEndDate = contract.TermEndDate;
-             dbcontract.TermStartDate = contract.TermStartDate;
-             dbcontract.Terms = contract.Terms;
-             dbcontract.EarlyExitDate = contract.EarlyExitDate;
-             dbcontract.ExitConditions = contract.ExitConditions;
-             dbcontract.ContractStatus = contract.ContractStatus;
-             dbcontract.OverallStatus = contract.OverallStatus;
-             dbcontract.WorkflowStatus = contract.WorkflowStatus;
-             dbcontract.LineOfBusiness = contract.LineOfBusiness;
-             dbcontract.PricingMethod = contract.PricingMethod;
-             dbcontract.PricingAmount = contract.PricingAmount;
-             dbcontract.PriceBreaks = contract.PricingBreaks;
-             dbcontract.Cost = contract.Cost;
-             dbcontract.MonthlyBudget = contract.MonthlyBudget;
-             dbcontract.GeneralLedgerAccount = contract.GeneralLedgetAccount;
-             dbcontract.Location = contract.Location;
-             dbcontract.ModifedByUserId = contract.ModifedByUserId;
-             dbcontract.ModifiedDateTime = contract.ModifiedDateTime;
-             dbcontract.CreatedByUserId = contract.CreatedByUserId;
-             dbcontract.CreatedDateTime = contract.CreatedDateTime;
-             var newContract = await _contractRepository.AddContractAsync(dbcontract, vendorContract.VendorId);
+         
+            var dbcontract = new Contract()
+            {
+                TermEndDate = contract.TermEndDate,
+                TermStartDate = contract.TermStartDate,
+                Terms = contract.Terms,
+                EarlyExitDate = contract.EarlyExitDate,
+                ExitConditions = contract.ExitConditions,
+                ContractStatus = contract.ContractStatus,
+                OverallStatus = contract.OverallStatus,
+                WorkflowStatus = contract.WorkflowStatus,
+                LineOfBusiness = contract.LineOfBusiness,
+                PricingMethod = contract.PricingMethod,
+                PricingAmount = contract.PricingAmount,
+                PriceBreaks = contract.PricingBreaks,
+                Cost = contract.Cost,
+                MonthlyBudget = contract.MonthlyBudget,
+                GeneralLedgerAccount = contract.GeneralLedgetAccount,
+                Location = contract.Location,
+                ModifedByUserId = contract.ModifedByUserId,
+                ModifiedDateTime = contract.ModifiedDateTime,
+                CreatedByUserId = contract.CreatedByUserId,
+                CreatedDateTime = contract.CreatedDateTime
+            };
+            var newContract = await _contractRepository.AddContractAsync(dbcontract);
              return new CommonResult<int>(newContract.Payload, newContract.ResultCode);
          }
 
-        /* public async Task<ICommonResult<int>> AddContractAssetAsync(ContractAssetModel contractAsset)
-         {
-
-         }*/
-        public async Task<ICommonResult<int>> AddAssetAsync(AssetModel asset, int contractId)
-        {
-            var dbAsset = new Asset();
-            
-            dbAsset.Description = asset.Description;
-            dbAsset.Name = asset.Name;
-            dbAsset.LicenseCount = asset.LicenseCount;
-            dbAsset.CapabilityId = asset.CapabilityId;
-            
-            
-            dbAsset.ModifedByUserId = asset.ModifedByUserId;
-            dbAsset.ModifiedDateTime = asset.ModifiedDateTime;
-            dbAsset.CreatedByUserId = asset.CreatedByUserId;
-            dbAsset.CreatedDateTime = asset.CreatedDateTime;
-            var newAsset = await _contractRepository.AddAssetAsync(dbAsset, contractId);
-            return new CommonResult<int>(newAsset.Payload, newAsset.ResultCode);
-        }
+      
     }
 }
