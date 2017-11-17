@@ -70,6 +70,13 @@
     <Compile Include="Extensions\ICommonResult.cs" />
     <Compile Include="Extensions\ResultCode.cs" />
     <Compile Include="IAttribute.cs" />
+    <Compile Include="Models\ContractModel.cs" />
+    <Compile Include="Models\RequestModels\AddContractRequestModel.cs" />
+    <Compile Include="Models\ResponseModels\GetContractAssetResponseModel.cs" />
+    <Compile Include="Models\ResponseModels\GetContractResponseModel.cs" />
+    <Compile Include="Models\ResponseModels\AddSoftwareResponseModel.cs" />
+    <Compile Include="Models\SoftwareModel.cs" />
+    <Compile Include="Models\RequestModels\AddSoftwareRequestModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

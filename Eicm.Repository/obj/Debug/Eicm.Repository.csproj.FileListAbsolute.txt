@@ -15,3 +15,5 @@ C:\projects\EicmApi\Eicm.Repository\bin\Debug\NLog.xml
 C:\projects\EicmApi\Eicm.Repository\obj\Debug\Eicm.Repository.csprojResolveAssemblyReference.cache
 C:\projects\EicmApi\Eicm.Repository\obj\Debug\Eicm.Repository.dll
 C:\projects\EicmApi\Eicm.Repository\obj\Debug\Eicm.Repository.pdb
+C:\projects\EicmApi\Eicm.Repository\bin\Debug\AutoMapper.dll
+C:\projects\EicmApi\Eicm.Repository\bin\Debug\AutoMapper.xml

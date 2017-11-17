@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using Eicm.BusinessLogic;
 using Eicm.BusinessLogic.DataObjects;
+using Eicm.Core.Models.RequestModels;
 using NLog;
 
 namespace Eicm.Api.Controllers
@@ -17,14 +18,14 @@ namespace Eicm.Api.Controllers
             _assetsBusinessLogic = assetBusinessLogic;
         }
 
-       /* [HttpGet]
-        [Route("api/asset/{id}")]
+        [HttpGet]
+        [Route("api/software/{id}")]
         public async Task<IHttpActionResult> Get(int id)
         {
-            _logger.Info("Retrieving contract with id = " + id);
+            _logger.Info("Retrieving software with id = " + id);
             try
             {
-                var asset = await _assetsBusinessLogic.GetAssetByIdAsync(id);
+                var asset = await _assetsBusinessLogic.GetSoftwareByIdAsync(id);
 
                 if (!ModelState.IsValid)
                 {
@@ -42,11 +43,11 @@ namespace Eicm.Api.Controllers
             {
                 return BadRequest(ex.Message);
             }
-        }*/
+        }
 
         [HttpPost]
-        [Route("api/asset/")]
-        public async Task<IHttpActionResult> Add([FromBody] AssetModel asset)
+        [Route("api/software/")]
+        public async Task<IHttpActionResult> Add([FromBody] AddSoftwareRequestModel asset)
         {
             if (asset == null)
             {
@@ -56,7 +57,7 @@ namespace Eicm.Api.Controllers
 
             _logger.Info("Adding asset");
 
-            var newAsset = await _assetsBusinessLogic.AddAssetAsync(asset); 
+            var newAsset = await _assetsBusinessLogic.AddSoftwareAsync(asset); 
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

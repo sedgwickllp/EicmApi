@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using Eicm.BusinessLogic;
 using Eicm.BusinessLogic.DataObjects;
+using Eicm.Core.Models.RequestModels;
 using NLog;
 
 namespace Eicm.Api.Controllers
@@ -47,7 +48,7 @@ namespace Eicm.Api.Controllers
 
         [HttpPost]
         [Route("api/contracts/")]
-        public async Task<IHttpActionResult> Add([FromBody] ContractAddDTO contract)
+        public async Task<IHttpActionResult> Add([FromBody] AddContractRequestModel contract)
         {
             if (contract == null)
             {
@@ -64,25 +65,5 @@ namespace Eicm.Api.Controllers
             }
             return Ok(newContract);
         }
-        /*
-               [HttpPost]
-               [Route("api/vendors/{vendorId}/accounts/{accountId}/contracts/")]
-              public async Task<IHttpActionResult> Add([FromBody] ContractAddModel contract, int accountId)
-               {
-                   if (contract == null)
-                   {
-                       return BadRequest("Contract is null");
-                   }
-
-                   int userId = 1; //TODO get user profile
-                   _logger.Info("Adding contract");
-
-                   var newContract = await _contractBusinessLogic.AddContractAsync(contract, userId, accountId); //TODO change to user object vs id?
-                   if (!ModelState.IsValid)
-                   {
-                       return BadRequest(ModelState);
-                   }
-                   return Ok(newContract);
-               }*/
     }
 }

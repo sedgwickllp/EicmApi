@@ -15,3 +15,5 @@ C:\projects\EicmApi\Eicm.BusinessLayer\bin\Debug\NLog.xml
 C:\projects\EicmApi\Eicm.BusinessLayer\bin\Debug\EntityFramework.xml
 C:\projects\EicmApi\Eicm.BusinessLayer\obj\Debug\Eicm.BusinessLogic.dll
 C:\projects\EicmApi\Eicm.BusinessLayer\obj\Debug\Eicm.BusinessLogic.pdb
+C:\projects\EicmApi\Eicm.BusinessLayer\bin\Debug\AutoMapper.dll
+C:\projects\EicmApi\Eicm.BusinessLayer\bin\Debug\AutoMapper.xml

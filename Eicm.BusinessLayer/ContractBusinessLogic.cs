@@ -3,6 +3,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Eicm.BusinessLogic.DataObjects;
 using Eicm.Core.Extensions;
+using Eicm.Core.Models.RequestModels;
+using Eicm.Core.Models.ResponseModels;
 using Eicm.DataLayer.Entities.Assets;
 using Eicm.DataLayer.Entities.Vendors;
 using Eicm.Repository;
@@ -19,7 +21,7 @@ namespace Eicm.BusinessLogic
         {
             _contractRepository = contractRepository;
         }
-        public async Task<ICommonResult<ContractDTO>> GetContractByIdAsync(int id)
+        public async Task<ICommonResult<GetContractResponseModel>> GetContractByIdAsync(int id)
         {
             _logger.Info("Retrieving contract with id: " + id);
             var dbContract = await _contractRepository.GetContractByIdAsync(id);
@@ -27,21 +29,18 @@ namespace Eicm.BusinessLogic
             if (dbContract.ResultCode && dbContract.Payload == null)
             {
                 _logger.Info("No contract returned for id: " + id);
-                return new CommonResult<ContractDTO>(null, dbContract.ResultCode);
+                return new CommonResult<GetContractResponseModel>(null, dbContract.ResultCode);
             }
             if (!dbContract.ResultCode)
             {
                 _logger.Info("getContractByIdAsync returned failed from repo");
-                return new CommonResult<ContractDTO>(null, dbContract.ResultCode, dbContract.Message);
+                return new CommonResult<GetContractResponseModel>(null, dbContract.ResultCode, dbContract.Message);
             }
             _logger.Info("Contract retrieved");
 
 
-            var contract = new ContractDTO()
-            {
-                ContractDetail = new ContractDetailModel(dbContract.Payload)
-            };
-            return new CommonResult<ContractDTO>(contract, true); 
+           
+            return dbContract; 
         }
 
        
@@ -60,33 +59,10 @@ namespace Eicm.BusinessLogic
 
             return new CommonResult<bool>(dbVendor.ResultCode);
         }*/
-     public async Task<ICommonResult<int>> AddContractAsync(ContractAddDTO contract)
-     {
-         
-            var dbcontract = new Contract()
-            {
-                TermEndDate = contract.TermEndDate,
-                TermStartDate = contract.TermStartDate,
-                Terms = contract.Terms,
-                EarlyExitDate = contract.EarlyExitDate,
-                ExitConditions = contract.ExitConditions,
-                ContractStatus = contract.ContractStatus,
-                OverallStatus = contract.OverallStatus,
-                WorkflowStatus = contract.WorkflowStatus,
-                LineOfBusiness = contract.LineOfBusiness,
-                PricingMethod = contract.PricingMethod,
-                PricingAmount = contract.PricingAmount,
-                PriceBreaks = contract.PricingBreaks,
-                Cost = contract.Cost,
-                MonthlyBudget = contract.MonthlyBudget,
-                GeneralLedgerAccount = contract.GeneralLedgetAccount,
-                Location = contract.Location,
-                ModifedByUserId = contract.ModifedByUserId,
-                ModifiedDateTime = contract.ModifiedDateTime,
-                CreatedByUserId = contract.CreatedByUserId,
-                CreatedDateTime = contract.CreatedDateTime
-            };
-            var newContract = await _contractRepository.AddContractAsync(dbcontract);
+         public async Task<ICommonResult<int>> AddContractAsync(AddContractRequestModel contract)
+         {
+    
+            var newContract = await _contractRepository.AddContractAsync(contract);
              return new CommonResult<int>(newContract.Payload, newContract.ResultCode);
          }
 

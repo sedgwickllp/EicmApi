@@ -45,6 +45,7 @@ namespace Eicm.Api.Controllers
             }
         }
 
+        /*
         [HttpPost]
         [Route("api/contract/{contractId}/asset/")]
         public async Task<IHttpActionResult> Add([FromBody] AssetModel asset, int contractId)
@@ -65,7 +66,7 @@ namespace Eicm.Api.Controllers
             }
             return Ok(newAsset);
         }
-
+        */
         [HttpDelete]
         [Route("api/contract/{contractId}/asset/{assetId}")]
         public async Task<IHttpActionResult> Delete(int contractId, int assetId)

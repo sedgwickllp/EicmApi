@@ -19,6 +19,7 @@ namespace Eicm.Api
             //    Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             //GlobalConfiguration.Configuration.Formatters.Remove(GlobalConfiguration.Configuration.Formatters
             //    .XmlFormatter);
+            AutoMapperConfig.Initialize();
             GlobalConfiguration.Configuration.Formatters.JsonFormatter.MediaTypeMappings
                 .Add(new RequestHeaderMapping("Accept", "text/html", StringComparison.InvariantCultureIgnoreCase, true, "application/json"));
             GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.Formatting = Formatting.Indented;

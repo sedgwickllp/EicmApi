@@ -4,6 +4,7 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using Eicm.BusinessLogic.DataObjects;
 using Eicm.Core.Extensions;
+using Eicm.Core.Models.ResponseModels;
 using Eicm.DataLayer.Entities.Assets;
 using Eicm.DataLayer.Entities.Vendors;
 using Eicm.Repository;
@@ -26,33 +27,33 @@ namespace Eicm.BusinessLogic
         }
         
        
-        public async Task<ICommonResult<int>> AddAssetToContractAsync(AssetModel asset, int contractId)
+        /*public async Task<ICommonResult<int>> AddAssetToContractAsync(AssetModel asset, int contractId)
         {
             var newAsset = await _assetBusinessLogic.AddAssetAsync(asset);
             var newContractAsset = await _contractAssetRepository.AddAssetToContractAsync(newAsset.Payload, contractId);
             return new CommonResult<int>(newAsset.Payload, newContractAsset.ResultCode);
-        }
+        }*/
 
-        public async Task<ICommonResult<ContractDTO>> GetContractAssetsAsync(int contractId)
+        public async Task<ICommonResult<GetContractAssetResponseModel>> GetContractAssetsAsync(int contractId)
         {
             _logger.Info("Retrieving assets for contract with id: " + contractId);
-            var contract = await _contractBusinessLogic.GetContractByIdAsync(contractId);
-            var dbassets = await _contractAssetRepository.GetContractAssetsAsync(contractId);
+            //var contract = await _contractBusinessLogic.GetContractByIdAsync(contractId);
+            var contractAssets = await _contractAssetRepository.GetContractAssetsAsync(contractId);
 
-            if (dbassets.ResultCode && dbassets.Payload == null)
+            if (contractAssets.ResultCode && contractAssets.Payload == null)
             {
                 _logger.Info("No asset returned for id: " + contractId);
-                return new CommonResult<ContractDTO>(null, dbassets.ResultCode);
+                return new CommonResult<GetContractAssetResponseModel>(null, contractAssets.ResultCode);
             }
-            if (!dbassets.ResultCode)
+            if (!contractAssets.ResultCode)
             {
-                _logger.Info("getTicketByIdAsync returned failed from repo");
-                return new CommonResult<ContractDTO>(null, dbassets.ResultCode, dbassets.Message);
+                _logger.Info("getContractByIdAsync returned failed from repo");
+                return new CommonResult<GetContractAssetResponseModel>(null, contractAssets.ResultCode, contractAssets.Message);
             }
-            _logger.Info("Ticket retrieved");
+            _logger.Info("Contract retrieved");
             
-            contract.Payload.Assets = dbassets.Payload.Select(x => new AssetModel(x.Asset)).ToList(); ;
-            return new CommonResult<ContractDTO>(contract.Payload, dbassets.ResultCode); ;
+            //contract.Payload.SoftwareList = dbassets.Payload.Select(x => new AssetModel(x.Asset)).ToList(); ;
+            return new CommonResult<GetContractAssetResponseModel>(contractAssets.Payload, contractAssets.ResultCode); ;
         }
 
         public async Task<ICommonResult<bool>> RemoveAssetFromContractAsync(int contractId, int assetId)

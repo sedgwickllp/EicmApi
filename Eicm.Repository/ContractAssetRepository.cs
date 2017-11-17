@@ -8,6 +8,10 @@ using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Threading.Tasks;
+using Eicm.Core;
+using Eicm.Core.Enums;
+using Eicm.Core.Models;
+using Eicm.Core.Models.ResponseModels;
 using Eicm.DataLayer.Entities.Assets;
 
 namespace Eicm.Repository
@@ -21,7 +25,7 @@ namespace Eicm.Repository
             _coreDbContext = coreDbContext;
         }
 
-        public async Task<ICommonResult<List<ContractAsset>>> GetContractAssetsAsync(int contractId)
+        public async Task<ICommonResult<GetContractAssetResponseModel>> GetContractAssetsAsync(int contractId)
         {
             try
             {
@@ -30,12 +34,55 @@ namespace Eicm.Repository
                     .Include(ca => ca.Asset)
                     .OrderBy(c => c.CreatedDateTime)
                     .ToListAsync();
-                return new CommonResult<List<ContractAsset>>(contractAssetList, ResultCode.Success);
+
+                if (contractAssetList.Count.Equals(0))
+                {
+                    return new CommonResult<GetContractAssetResponseModel>(null, ResultCode.Failure);
+
+                }
+                var contract = contractAssetList[0].Contract;
+                var contractAssetResponse = new GetContractAssetResponseModel()
+                {
+                    Id = contract.Id,
+                    CreatedByUserId = contract.CreatedByUserId,
+                    CreatedDateTime = contract.CreatedDateTime,
+                    ModifiedDateTime = contract.ModifiedDateTime,
+                    ModifiedByUserId = contract.ModifedByUserId,
+                    TermStartDate = contract.TermStartDate,
+                    TermEndDate = contract.TermEndDate,
+                    EarlyExitDate = contract.EarlyExitDate,
+                    Terms = contract.Terms,
+                    ContractStatus = ((ContractStatusType)contract.ContractStatus).GetEnumDisplayName(),
+                    OverallStatus = ((ContractGlobalStatusType)contract.OverallStatus).GetEnumDisplayName(),
+                    WorkflowStatus = ((DataStatusType)contract.WorkflowStatus).GetEnumDisplayName(),
+                    LineOfBusiness = ((LineOfBusinessType)contract.LineOfBusiness).GetEnumDisplayName(),
+                    PricingMethod = contract.PricingMethod != null ? ((PricingMethodType)contract.PricingMethod).GetEnumDisplayName() : "",
+                    PricingAmount = contract.PricingAmount,
+                    PriceBreaks = contract.PriceBreaks,
+                    Cost = contract.Cost,
+                    MonthlyBudget = contract.MonthlyBudget,
+                    GeneralLedgerAccount = contract.GeneralLedgerAccount,
+                    Location = (contract.Location != null) ? ((LocationType)contract.Location).GetEnumDisplayName() : ""
+                };
+                contractAssetResponse.SoftwareList = contractAssetList.Select(x => new AddSoftwareResponseModel()
+                {
+                    Id = x.Asset.Id,
+                    Name = x.Asset.Name,
+                    Version = x.Asset.Version,
+                    Year = x.Asset.ModelYear,
+                    Description = x.Asset.Description,
+                    CapabilityType = x.Asset.CapabilityId,
+                    LicenseCount = x.Asset.LicenseCount,
+                    AvgDailyUsers = x.Asset.AvgDailyUsers,
+                    UserRangeType = x.Asset.UserRangeId
+
+                }).ToList();
+                return new CommonResult<GetContractAssetResponseModel>(contractAssetResponse, ResultCode.Success);
             }
             catch (Exception ex)
             {
                 _log.Error(ex.GetBaseException());
-                return new CommonResult<List<ContractAsset>>(null, ResultCode.Failure, ex.Message);
+                return new CommonResult<GetContractAssetResponseModel>(null, ResultCode.Failure, ex.Message);
             }
         }
         public async Task<ICommonResult<int>> AddAssetToContractAsync(int assetId, int contractId)

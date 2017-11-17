@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Eicm.BusinessLogic.DataObjects;
@@ -54,7 +55,10 @@ namespace Eicm.BusinessLogic
             {
                 Name = contact.Name,
                 Email = contact.Email,
-                Phone = contact.Phone
+                Phone = contact.Phone,
+                CreatedDateTime = DateTime.Now,
+                ModifiedDateTime = DateTime.Now
+
             };
             var newContact = await _contactRepository.AddContactAsync(dbcontact);
              return new CommonResult<int>(newContact.Payload, newContact.ResultCode);
